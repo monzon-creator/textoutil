@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Palabras y Caracteres Online Gratis | TextoUtil</title>
+    <meta name="description" content="Cuenta palabras, caracteres, oraciones y párrafos de cualquier texto al instante. Herramienta gratuita para escritores, estudiantes y profesionales. Sin registro.">
+    <meta name="keywords" content="contador de palabras, contador de caracteres, contar palabras online, contador de letras, tiempo de lectura">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="TextoUtil">
+    <link rel="canonical" href="https://textoutil.com/contador-palabras">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contador de Palabras y Caracteres Online Gratis">
+    <meta property="og:description" content="Cuenta palabras, caracteres, oraciones y párrafos al instante. Gratis y sin registro.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://textoutil.com/contador-palabras">
+    <meta property="og:locale" content="es_ES">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0f1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2234;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent: #f97316;
+            --accent-glow: rgba(249, 115, 22, 0.15);
+            --border: #2d3a4f;
+            --success: #22c55e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Grain overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .logo {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.0625rem;
+        }
+        
+        /* Ad Space */
+        .ad-space {
+            background: var(--bg-card);
+            border: 1px dashed var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        /* Main Tool */
+        .tool-container {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+        
+        .textarea-wrapper {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 220px;
+            padding: 1.25rem;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            resize: vertical;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-glow);
+        }
+        
+        textarea::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .char-limit {
+            position: absolute;
+            bottom: 0.75rem;
+            right: 1rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+        
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            transition: transform 0.15s;
+        }
+        
+        .stat-value.updated {
+            transform: scale(1.1);
+        }
+        
+        .stat-label {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Reading Time */
+        .reading-time {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+        
+        .reading-time svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+        }
+        
+        .reading-time-text {
+            font-weight: 600;
+        }
+        
+        .reading-time-value {
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Actions */
+        .actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--border);
+        }
+        
+        .btn svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .copy-feedback {
+            color: var(--success);
+            font-size: 0.875rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        
+        .copy-feedback.show {
+            opacity: 1;
+        }
+        
+        /* Content Section */
+        .content-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .content-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .content-section h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+        
+        .content-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .content-section ul {
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-answer {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        footer a:hover {
+            color: var(--accent);
+        }
+        
+        /* Mobile */
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            
+            .tool-container {
+                padding: 1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">TextoUtil</div>
+            <h1>Contador de Palabras y Caracteres</h1>
+            <p class="subtitle">Analiza tu texto al instante. Gratis, sin registro.</p>
+        </header>
+        
+        <!-- Ad Space Top -->
+        <div class="ad-space">
+            Espacio reservado para anuncios
+        </div>
+        
+        <!-- Main Tool -->
+        <main class="tool-container">
+            <div class="textarea-wrapper">
+                <textarea 
+                    id="textInput" 
+                    placeholder="Escribe o pega tu texto aquí para analizarlo..."
+                    autofocus
+                ></textarea>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="wordCount">0</div>
+                    <div class="stat-label">Palabras</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="charCount">0</div>
+                    <div class="stat-label">Caracteres</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="charNoSpaces">0</div>
+                    <div class="stat-label">Sin espacios</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="sentenceCount">0</div>
+                    <div class="stat-label">Oraciones</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="paragraphCount">0</div>
+                    <div class="stat-label">Párrafos</div>
+                </div>
+            </div>
+            
+            <div class="reading-time">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12,6 12,12 16,14"/>
+                </svg>
+                <span class="reading-time-text">
+                    Tiempo de lectura: <span class="reading-time-value" id="readingTime">0 min</span>
+                </span>
+            </div>
+            
+            <div class="actions">
+                <button class="btn btn-primary" id="copyBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                    Copiar texto
+                </button>
+                <button class="btn btn-secondary" id="clearBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                    </svg>
+                    Limpiar
+                </button>
+                <span class="copy-feedback" id="copyFeedback">¡Copiado!</span>
+            </div>
+        </main>
+        
+        <!-- Ad Space Middle -->
+        <div class="ad-space">
+            Espacio reservado para anuncios
+        </div>
+        
+        <!-- Content for SEO -->
+        <section class="content-section">
+            <h2>Cómo usar el contador de palabras</h2>
+            <p>
+                Usar esta herramienta es muy sencillo: escribe o pega cualquier texto en el cuadro de arriba y obtendrás al instante el conteo de palabras, caracteres, oraciones y párrafos. Los resultados se actualizan automáticamente mientras escribes.
+            </p>
+            
+            <h3>¿Para qué sirve contar palabras?</h3>
+            <p>
+                Muchas plataformas y situaciones requieren textos con longitudes específicas:
+            </p>
+            <ul>
+                <li><strong>Redes sociales:</strong> Twitter/X tiene límite de 280 caracteres, Instagram 2,200</li>
+                <li><strong>Trabajos académicos:</strong> Ensayos y tesis con mínimos y máximos de palabras</li>
+                <li><strong>SEO y blogs:</strong> Artículos que requieren entre 1,000-2,000 palabras</li>
+                <li><strong>Copywriting:</strong> Textos publicitarios con límites estrictos</li>
+            </ul>
+            
+            <h3>¿Cómo se calcula el tiempo de lectura?</h3>
+            <p>
+                El tiempo de lectura se calcula usando una velocidad promedio de 200 palabras por minuto, que es la velocidad de lectura típica de un adulto para textos en español.
+            </p>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section class="content-section">
+            <h2>Preguntas frecuentes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Cuál es la diferencia entre caracteres y caracteres sin espacios?</div>
+                <div class="faq-answer">
+                    Los caracteres incluyen todas las letras, números, símbolos y espacios. Los caracteres sin espacios solo cuentan letras, números y símbolos, excluyendo los espacios en blanco.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Se guarda mi texto en algún servidor?</div>
+                <div class="faq-answer">
+                    No. Todo el procesamiento ocurre directamente en tu navegador. Tu texto nunca sale de tu dispositivo ni se almacena en ningún servidor.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Funciona con textos en otros idiomas?</div>
+                <div class="faq-answer">
+                    Sí. El contador funciona con textos en cualquier idioma que use el alfabeto latino, incluyendo español, inglés, portugués, francés, alemán e italiano.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Hay un límite de texto?</div>
+                <div class="faq-answer">
+                    No hay un límite estricto. La herramienta puede procesar textos muy largos, aunque en dispositivos móviles textos extremadamente largos podrían afectar el rendimiento.
+                </div>
+            </div>
+        </section>
+        
+        <!-- Ad Space Bottom -->
+        <div class="ad-space">
+            Espacio reservado para anuncios
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 TextoUtil. Todas las herramientas son gratuitas.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="/">Inicio</a> · 
+                <a href="/numeros-a-letras">Números a letras</a> · 
+                <a href="/separador-silabas">Separador de sílabas</a>
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        const textInput = document.getElementById('textInput');
+        const wordCount = document.getElementById('wordCount');
+        const charCount = document.getElementById('charCount');
+        const charNoSpaces = document.getElementById('charNoSpaces');
+        const sentenceCount = document.getElementById('sentenceCount');
+        const paragraphCount = document.getElementById('paragraphCount');
+        const readingTime = document.getElementById('readingTime');
+        const copyBtn = document.getElementById('copyBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const copyFeedback = document.getElementById('copyFeedback');
+        
+        function updateStats() {
+            const text = textInput.value;
+            
+            // Word count
+            const words = text.trim() === '' ? [] : text.trim().split(/\s+/);
+            const wordNum = words.length;
+            
+            // Character counts
+            const chars = text.length;
+            const charsNoSpace = text.replace(/\s/g, '').length;
+            
+            // Sentence count (periods, exclamation, question marks)
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+            
+            // Paragraph count (separated by double newlines or single newlines)
+            const paragraphs = text.trim() === '' ? 0 : text.split(/\n\s*\n|\n/).filter(p => p.trim().length > 0).length;
+            
+            // Update values with animation
+            updateValue(wordCount, wordNum);
+            updateValue(charCount, chars);
+            updateValue(charNoSpaces, charsNoSpace);
+            updateValue(sentenceCount, sentences);
+            updateValue(paragraphCount, paragraphs);
+            
+            if (wordNum === 0) {
+                readingTime.textContent = '0 min';
+            } else if (wordNum < 200) {
+                readingTime.textContent = '< 1 min';
+            } else {
+                readingTime.textContent = Math.ceil(wordNum / 200) + ' min';
+            }
+        }
+        
+        function updateValue(element, value) {
+            if (element.textContent !== value.toString()) {
+                element.textContent = value;
+                element.classList.add('updated');
+                setTimeout(() => element.classList.remove('updated'), 150);
+            }
+        }
+        
+        // Copy functionality
+        copyBtn.addEventListener('click', async () => {
+            if (textInput.value) {
+                try {
+                    await navigator.clipboard.writeText(textInput.value);
+                    copyFeedback.classList.add('show');
+                    setTimeout(() => copyFeedback.classList.remove('show'), 2000);
+                } catch (err) {
+                    // Fallback for older browsers
+                    textInput.select();
+                    document.execCommand('copy');
+                    copyFeedback.classList.add('show');
+                    setTimeout(() => copyFeedback.classList.remove('show'), 2000);
+                }
+            }
+        });
+        
+        // Clear functionality
+        clearBtn.addEventListener('click', () => {
+            textInput.value = '';
+            updateStats();
+            textInput.focus();
+        });
+        
+        // Listen for input
+        textInput.addEventListener('input', updateStats);
+        
+        // Initialize
+        updateStats();
+    </script>
+</body>
+</html>
