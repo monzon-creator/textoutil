@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir Números a Letras Online | Pesos y Euros | TextoUtil</title>
+    <meta name="description" content="Convierte números a letras en español. Ideal para cheques, contratos y documentos oficiales. Soporta pesos mexicanos y euros. Gratis y sin registro.">
+    <meta name="keywords" content="convertir numeros a letras, de numero a letra, numeros a letras, pesos a letras, euros a letras">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="TextoUtil">
+    <link rel="canonical" href="https://textoutil.com/numero-a-letras.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Convertir Números a Letras Online | Pesos y Euros">
+    <meta property="og:description" content="Convierte números a letras en español. Ideal para cheques, contratos y documentos oficiales. Gratis y sin registro.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://textoutil.com/numero-a-letras.html">
+    <meta property="og:locale" content="es_ES">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0f1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2234;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent: #f97316;
+            --accent-glow: rgba(249, 115, 22, 0.15);
+            --border: #2d3a4f;
+            --success: #22c55e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Grain overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        /* Navigation */
+        nav {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--accent);
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            margin-top: 1rem;
+        }
+        
+        .logo {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.0625rem;
+        }
+        
+        /* Ad Space */
+        .ad-space {
+            background: var(--bg-card);
+            border: 1px dashed var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        /* Main Tool */
+        .tool-container {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Input Group */
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .input-wrapper {
+            flex: 1;
+        }
+        
+        .input-wrapper label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .number-input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        .number-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-glow);
+        }
+        
+        .number-input::placeholder {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        /* Currency Selector */
+        .currency-wrapper {
+            min-width: 140px;
+        }
+        
+        .currency-select {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 18px;
+            padding-right: 3rem;
+        }
+        
+        .currency-select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        .currency-select option {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+        
+        /* Result Box */
+        .result-box {
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-height: 100px;
+            margin-bottom: 1.5rem;
+            transition: border-color 0.2s;
+        }
+        
+        .result-box.has-content {
+            border-color: var(--accent);
+        }
+        
+        .result-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+        
+        .result-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.5;
+            word-break: break-word;
+        }
+        
+        .result-text.placeholder {
+            color: var(--text-muted);
+            font-weight: 400;
+            font-style: italic;
+        }
+        
+        /* Quick Examples */
+        .examples-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .examples-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+        
+        .examples-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .example-btn {
+            padding: 0.5rem 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .example-btn:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--accent-glow);
+        }
+        
+        /* Actions */
+        .actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--border);
+        }
+        
+        .btn svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .copy-feedback {
+            color: var(--success);
+            font-size: 0.875rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        
+        .copy-feedback.show {
+            opacity: 1;
+        }
+        
+        /* Content Section */
+        .content-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .content-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .content-section h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+        
+        .content-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .content-section ul {
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-answer {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        footer a:hover {
+            color: var(--accent);
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--bg-secondary);
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+            }
+            
+            .nav-links.mobile-open {
+                display: flex;
+            }
+            
+            .nav-links li {
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 1rem 1.5rem;
+            }
+            
+            .nav-links a.active::after {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .input-row {
+                flex-direction: column;
+            }
+            
+            .currency-wrapper {
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            
+            .tool-container {
+                padding: 1rem;
+            }
+            
+            .number-input {
+                font-size: 1.25rem;
+            }
+            
+            .result-text {
+                font-size: 1.125rem;
+            }
+            
+            .actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-logo">TextoUtil</a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Contador de Palabras</a></li>
+                <li><a href="/numero-a-letras.html" class="active">Números a Letras</a></li>
+                <li><a href="/separador-silabas.html">Separador de Sílabas</a></li>
+            </ul>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <header>
+            <div class="logo">HERRAMIENTAS DE TEXTO</div>
+            <h1>Convertir Números a Letras</h1>
+            <p class="subtitle">Escribe cantidades en palabras para cheques, contratos y documentos oficiales.</p>
+        </header>
+        
+        <!-- Ad Space Top -->
+        <div class="ad-space">
+            Espacio reservado para anuncios
+        </div>
+        
+        <!-- Main Tool -->
+        <main class="tool-container">
+            <div class="input-group">
+                <div class="input-row">
+                    <div class="input-wrapper">
+                        <label for="numberInput">Ingresa el número</label>
+                        <input 
+                            type="text" 
+                            id="numberInput" 
+                            class="number-input" 
+                            placeholder="Ej: 1250.50"
+                            inputmode="decimal"
+                            autocomplete="off"
+                        >
+                    </div>
+                    <div class="input-wrapper currency-wrapper">
+                        <label for="currencySelect">Moneda</label>
+                        <select id="currencySelect" class="currency-select">
+                            <option value="MXN">🇲🇽 MXN</option>
+                            <option value="EUR">🇪🇺 EUR</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="result-box" id="resultBox">
+                <div class="result-label">Resultado en letras</div>
+                <div class="result-text placeholder" id="resultText">El resultado aparecerá aquí...</div>
+            </div>
+            
+            <div class="examples-section">
+                <div class="examples-label">Ejemplos rápidos:</div>
+                <div class="examples-grid">
+                    <button class="example-btn" data-value="1250.50">1,250.50</button>
+                    <button class="example-btn" data-value="45000">45,000</button>
+                    <button class="example-btn" data-value="100">100</button>
+                    <button class="example-btn" data-value="1000000">1,000,000</button>
+                    <button class="example-btn" data-value="999999.99">999,999.99</button>
+                </div>
+            </div>
+            
+            <div class="actions">
+                <button class="btn btn-primary" id="copyBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                    Copiar resultado
+                </button>
+                <button class="btn btn-secondary" id="clearBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                    </svg>
+                    Limpiar
+                </button>
+                <span class="copy-feedback" id="copyFeedback">¡Copiado!</span>
+            </div>
+        </main>
+        
+        <!-- Ad Space Middle -->
+        <div class="ad-space">
+            Espacio reservado para anuncios
+        </div>
+        
+        <!-- Content for SEO -->
+        <section class="content-section">
+            <h2>Cómo convertir números a letras</h2>
+            <p>
+                Usar esta herramienta es muy sencillo: escribe cualquier cantidad numérica en el campo de arriba y automáticamente obtendrás su equivalente en palabras. Puedes incluir decimales usando un punto (.) y seleccionar la moneda que necesites: pesos mexicanos (MXN) o euros (EUR).
+            </p>
+            <p>
+                Esta herramienta es especialmente útil para llenar cheques bancarios, redactar contratos, elaborar facturas fiscales y cualquier documento donde necesites escribir cantidades en letra de forma correcta y profesional.
+            </p>
+            
+            <h3>¿Para qué sirve escribir números con letra?</h3>
+            <p>
+                Escribir cantidades en palabras es un requisito legal y de seguridad en muchos documentos oficiales:
+            </p>
+            <ul>
+                <li><strong>Cheques bancarios:</strong> Tanto en México como en España, los cheques requieren la cantidad escrita en letras para evitar alteraciones y fraudes.</li>
+                <li><strong>Contratos legales:</strong> Los montos en contratos de arrendamiento, compraventa o préstamos deben incluir la cantidad en letras para mayor claridad jurídica.</li>
+                <li><strong>Actas notariales:</strong> Los notarios públicos requieren las cantidades expresadas en palabras en escrituras y poderes.</li>
+                <li><strong>Facturas y recibos:</strong> Muchos documentos fiscales en México (CFDI) y España requieren o recomiendan incluir el monto en letras.</li>
+                <li><strong>Pagarés y letras de cambio:</strong> Estos títulos de crédito exigen el importe escrito tanto en número como en letra.</li>
+            </ul>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section class="content-section">
+            <h2>Preguntas frecuentes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Hasta qué número puedo convertir?</div>
+                <div class="faq-answer">
+                    La herramienta acepta números desde 0 hasta 999,999,999.99 (novecientos noventa y nueve millones). Esto cubre prácticamente cualquier cantidad que necesites para cheques, contratos o documentos legales.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Cómo se escriben los decimales?</div>
+                <div class="faq-answer">
+                    Los decimales se expresan como centavos (para pesos mexicanos) o céntimos (para euros). Por ejemplo: 1250.50 en pesos se escribe "mil doscientos cincuenta pesos con cincuenta centavos". En euros sería "mil doscientos cincuenta euros con cincuenta céntimos".
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Cuál es la diferencia entre pesos y euros?</div>
+                <div class="faq-answer">
+                    La única diferencia es la terminología: en pesos mexicanos se usa "pesos" y "centavos", mientras que en euros se usa "euros" y "céntimos". La conversión del número a palabras es idéntica en ambos casos, siguiendo las reglas del español.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Es válido para documentos legales y fiscales?</div>
+                <div class="faq-answer">
+                    Sí. La conversión sigue las reglas gramaticales del español y los estándares utilizados en documentos oficiales tanto en México como en España. Sin embargo, siempre verifica que la cantidad coincida con lo que necesitas antes de usarla en un documento importante.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Puedo usar esta herramienta para llenar cheques?</div>
+                <div class="faq-answer">
+                    Absolutamente. Esta herramienta está diseñada precisamente para eso. Ingresa el monto de tu cheque, copia el resultado y transcríbelo. Recuerda que la mayoría de los bancos en México y España aceptan la cantidad escrita en minúsculas, aunque algunos prefieren la primera letra en mayúscula.
+                </div>
+            </div>
+        </section>
+        
+        <!-- Ad Space Bottom -->
+        <div class="ad-space">
+            Espacio reservado para anuncios
+        </div>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="/">Contador de Palabras</a>
+                <a href="/numero-a-letras.html">Números a Letras</a>
+                <a href="/separador-silabas.html">Separador de Sílabas</a>
+            </div>
+            <p>&copy; 2026 TextoUtil. Todas las herramientas son gratuitas.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // =====================================================
+        // NÚMERO A LETRAS - Algoritmo de conversión en español
+        // =====================================================
+        
+        const UNIDADES = ['', 'un', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'];
+        const UNIDADES_COMPLETAS = ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'];
+        const DECENAS_ESPECIALES = ['diez', 'once', 'doce', 'trece', 'catorce', 'quince', 'dieciséis', 'diecisiete', 'dieciocho', 'diecinueve'];
+        const DECENAS = ['', '', 'veinti', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta', 'ochenta', 'noventa'];
+        const DECENAS_EXACTAS = ['', '', 'veinte', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta', 'ochenta', 'noventa'];
+        const CENTENAS = ['', 'ciento', 'doscientos', 'trescientos', 'cuatrocientos', 'quinientos', 'seiscientos', 'setecientos', 'ochocientos', 'novecientos'];
+        
+        function convertirUnidades(n) {
+            return UNIDADES[n] || '';
+        }
+        
+        function convertirDecenas(n) {
+            if (n < 10) {
+                return UNIDADES[n];
+            }
+            if (n < 20) {
+                return DECENAS_ESPECIALES[n - 10];
+            }
+            const decena = Math.floor(n / 10);
+            const unidad = n % 10;
+            if (unidad === 0) {
+                return DECENAS_EXACTAS[decena];
+            }
+            if (decena === 2) {
+                return DECENAS[decena] + UNIDADES[unidad];
+            }
+            return DECENAS_EXACTAS[decena] + ' y ' + UNIDADES[unidad];
+        }
+        
+        function convertirCentenas(n) {
+            if (n === 100) {
+                return 'cien';
+            }
+            const centena = Math.floor(n / 100);
+            const resto = n % 100;
+            if (resto === 0) {
+                return CENTENAS[centena] || '';
+            }
+            const centenaTxt = CENTENAS[centena];
+            const restoTxt = convertirDecenas(resto);
+            if (centena === 0) {
+                return restoTxt;
+            }
+            return centenaTxt + ' ' + restoTxt;
+        }
+        
+        function convertirMiles(n) {
+            if (n < 1000) {
+                return convertirCentenas(n);
+            }
+            const miles = Math.floor(n / 1000);
+            const resto = n % 1000;
+            let milesTxt = '';
+            if (miles === 1) {
+                milesTxt = 'mil';
+            } else {
+                milesTxt = convertirCentenas(miles) + ' mil';
+            }
+            if (resto === 0) {
+                return milesTxt;
+            }
+            return milesTxt + ' ' + convertirCentenas(resto);
+        }
+        
+        function convertirMillones(n) {
+            if (n < 1000000) {
+                return convertirMiles(n);
+            }
+            const millones = Math.floor(n / 1000000);
+            const resto = n % 1000000;
+            let millonesTxt = '';
+            if (millones === 1) {
+                millonesTxt = 'un millón';
+            } else {
+                millonesTxt = convertirMiles(millones) + ' millones';
+            }
+            if (resto === 0) {
+                return millonesTxt;
+            }
+            // Usar "de" antes de la moneda cuando es millón exacto se maneja en la función principal
+            return millonesTxt + ' ' + convertirMiles(resto);
+        }
+        
+        function numeroALetras(numero, moneda) {
+            // Configuración de moneda
+            const config = {
+                MXN: { singular: 'peso', plural: 'pesos', centSingular: 'centavo', centPlural: 'centavos' },
+                EUR: { singular: 'euro', plural: 'euros', centSingular: 'céntimo', centPlural: 'céntimos' }
+            };
+            const mon = config[moneda] || config.MXN;
+            
+            // Validar número
+            if (numero === null || numero === undefined || numero === '') {
+                return '';
+            }
+            
+            // Parsear el número
+            const num = parseFloat(numero);
+            if (isNaN(num) || num < 0) {
+                return '';
+            }
+            
+            // Separar parte entera y decimal
+            const parteEntera = Math.floor(num);
+            const parteDecimal = Math.round((num - parteEntera) * 100);
+            
+            // Límite máximo
+            if (parteEntera > 999999999) {
+                return 'Número demasiado grande (máximo: 999,999,999.99)';
+            }
+            
+            // Caso especial: cero
+            if (parteEntera === 0 && parteDecimal === 0) {
+                return 'cero ' + mon.plural;
+            }
+            
+            let resultado = '';
+            
+            // Convertir parte entera
+            if (parteEntera === 0) {
+                resultado = 'cero ' + mon.plural;
+            } else if (parteEntera === 1) {
+                resultado = 'un ' + mon.singular;
+            } else {
+                const letras = convertirMillones(parteEntera);
+                // Verificar si termina en millón/millones sin resto para agregar "de"
+                if (parteEntera >= 1000000 && parteEntera % 1000000 === 0) {
+                    resultado = letras + ' de ' + mon.plural;
+                } else {
+                    resultado = letras + ' ' + mon.plural;
+                }
+            }
+            
+            // Agregar centavos/céntimos
+            if (parteDecimal > 0) {
+                if (parteDecimal === 1) {
+                    resultado += ' con un ' + mon.centSingular;
+                } else {
+                    const centavosLetras = convertirDecenas(parteDecimal);
+                    resultado += ' con ' + centavosLetras + ' ' + mon.centPlural;
+                }
+            }
+            
+            return resultado.trim();
+        }
+        
+        // =====================================================
+        // INTERACTIVIDAD
+        // =====================================================
+        
+        const numberInput = document.getElementById('numberInput');
+        const currencySelect = document.getElementById('currencySelect');
+        const resultBox = document.getElementById('resultBox');
+        const resultText = document.getElementById('resultText');
+        const copyBtn = document.getElementById('copyBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const copyFeedback = document.getElementById('copyFeedback');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const exampleBtns = document.querySelectorAll('.example-btn');
+        
+        // Formatear input mientras se escribe
+        function formatNumber(value) {
+            // Remover todo excepto números y punto
+            let cleaned = value.replace(/[^\d.]/g, '');
+            // Asegurar solo un punto decimal
+            const parts = cleaned.split('.');
+            if (parts.length > 2) {
+                cleaned = parts[0] + '.' + parts.slice(1).join('');
+            }
+            // Limitar decimales a 2
+            if (parts[1] && parts[1].length > 2) {
+                cleaned = parts[0] + '.' + parts[1].slice(0, 2);
+            }
+            return cleaned;
+        }
+        
+        function updateResult() {
+            const rawValue = numberInput.value;
+            const cleanValue = formatNumber(rawValue);
+            
+            if (cleanValue !== rawValue) {
+                numberInput.value = cleanValue;
+            }
+            
+            if (cleanValue === '' || cleanValue === '.') {
+                resultText.textContent = 'El resultado aparecerá aquí...';
+                resultText.classList.add('placeholder');
+                resultBox.classList.remove('has-content');
+                return;
+            }
+            
+            const currency = currencySelect.value;
+            const result = numeroALetras(cleanValue, currency);
+            
+            if (result) {
+                resultText.textContent = result;
+                resultText.classList.remove('placeholder');
+                resultBox.classList.add('has-content');
+            } else {
+                resultText.textContent = 'Ingresa un número válido';
+                resultText.classList.add('placeholder');
+                resultBox.classList.remove('has-content');
+            }
+        }
+        
+        // Event listeners
+        numberInput.addEventListener('input', updateResult);
+        currencySelect.addEventListener('change', updateResult);
+        
+        // Ejemplos rápidos
+        exampleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                numberInput.value = btn.dataset.value;
+                updateResult();
+                numberInput.focus();
+            });
+        });
+        
+        // Copiar resultado
+        copyBtn.addEventListener('click', async () => {
+            const text = resultText.textContent;
+            if (text && !resultText.classList.contains('placeholder')) {
+                try {
+                    await navigator.clipboard.writeText(text);
+                    copyFeedback.classList.add('show');
+                    setTimeout(() => copyFeedback.classList.remove('show'), 2000);
+                } catch (err) {
+                    // Fallback
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    copyFeedback.classList.add('show');
+                    setTimeout(() => copyFeedback.classList.remove('show'), 2000);
+                }
+            }
+        });
+        
+        // Limpiar
+        clearBtn.addEventListener('click', () => {
+            numberInput.value = '';
+            updateResult();
+            numberInput.focus();
+        });
+        
+        // Mobile menu
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('mobile-open');
+        });
+        
+        // Inicializar
+        updateResult();
+    </script>
+</body>
+</html>
