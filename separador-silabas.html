@@ -720,165 +720,189 @@
     </div>
     
     <script>
-        const textInput = document.getElementById('textInput');
-        const resultBox = document.getElementById('resultBox');
-        const copyBtn = document.getElementById('copyBtn');
-        const clearBtn = document.getElementById('clearBtn');
-        const copyFeedback = document.getElementById('copyFeedback');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-        const exampleChips = document.querySelectorAll('.example-chip');
+    const textInput = document.getElementById('textInput');
+    const resultBox = document.getElementById('resultBox');
+    const copyBtn = document.getElementById('copyBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const copyFeedback = document.getElementById('copyFeedback');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const exampleChips = document.querySelectorAll('.example-chip');
+    
+    // Spanish syllable separation rules
+    function separarEnSilabas(palabra) {
+        palabra = palabra.toLowerCase().trim();
+        if (!palabra) return '';
         
-        // Spanish syllable separation rules
-        function separarEnSilabas(palabra) {
-            palabra = palabra.toLowerCase().trim();
-            if (!palabra) return '';
+        const vocalesFuertes = 'aeoáéó';
+        const vocalesDebiles = 'iuüíú';
+        const vocales = vocalesFuertes + vocalesDebiles;
+        const consonantes = 'bcdfghjklmnñpqrstvwxyz';
+        
+        // Dígrafos que NUNCA se separan
+        const digrafos = ['ll', 'rr', 'ch'];
+        
+        // Grupos consonánticos que no se separan
+        const gruposConsonanticos = ['bl', 'br', 'cl', 'cr', 'dr', 'fl', 'fr', 'gl', 'gr', 'pl', 'pr', 'tr'];
+        
+        let silabas = [];
+        let silaba = '';
+        
+        for (let i = 0; i < palabra.length; i++) {
+            const char = palabra[i];
+            const siguiente = palabra[i + 1] || '';
+            const siguiente2 = palabra[i + 2] || '';
+            const dosCaracteres = char + siguiente;
             
-            // Vocales fuertes y débiles
-            const vocalesFuertes = 'aeoáéó';
-            const vocalesDebiles = 'iuüíú';
-            const vocales = vocalesFuertes + vocalesDebiles;
-            const consonantes = 'bcdfghjklmnñpqrstvwxyz';
+            // Verificar si hay un dígrafo
+            if (digrafos.includes(dosCaracteres)) {
+                // Si ya hay vocal en la sílaba actual, cerrarla
+                if (silaba && vocales.includes(silaba[silaba.length - 1])) {
+                    silabas.push(silaba);
+                    silaba = dosCaracteres;
+                    i++; // Saltar el siguiente carácter
+                } else {
+                    // Agregar dígrafo a sílaba actual
+                    silaba += dosCaracteres;
+                    i++; // Saltar el siguiente carácter
+                }
+                continue;
+            }
             
-            // Grupos consonánticos que no se separan
-            const gruposConsonanticos = ['bl', 'br', 'cl', 'cr', 'dr', 'fl', 'fr', 'gl', 'gr', 'pl', 'pr', 'tr'];
+            silaba += char;
             
-            let silabas = [];
-            let silaba = '';
-            
-            for (let i = 0; i < palabra.length; i++) {
-                const char = palabra[i];
-                const siguiente = palabra[i + 1] || '';
-                const siguiente2 = palabra[i + 2] || '';
-                
-                silaba += char;
-                
-                // Si es vocal
-                if (vocales.includes(char)) {
-                    // Verificar si hay consonante después
-                    if (consonantes.includes(siguiente)) {
-                        // Verificar grupo consonántico
-                        const grupo = siguiente + siguiente2;
-                        if (gruposConsonanticos.includes(grupo)) {
-                            // No separar, el grupo va con la siguiente sílaba
-                            silabas.push(silaba);
-                            silaba = '';
-                        } else if (consonantes.includes(siguiente2)) {
-                            // Dos consonantes: la primera va con esta sílaba
-                            silaba += siguiente;
-                            silabas.push(silaba);
-                            silaba = '';
-                            i++;
-                        } else if (vocales.includes(siguiente2)) {
-                            // Consonante entre vocales: va con la siguiente
-                            silabas.push(silaba);
-                            silaba = '';
-                        } else {
-                            // Consonante al final
-                            silaba += siguiente;
-                            silabas.push(silaba);
-                            silaba = '';
-                            i++;
-                        }
-                    } else if (vocales.includes(siguiente)) {
-                        // Dos vocales: verificar diptongo
-                        const esDiptongo = (vocalesFuertes.includes(char) && vocalesDebiles.includes(siguiente)) ||
-                                         (vocalesDebiles.includes(char) && vocalesFuertes.includes(siguiente)) ||
-                                         (vocalesDebiles.includes(char) && vocalesDebiles.includes(siguiente));
-                        
-                        if (!esDiptongo) {
-                            // Hiato: separar
-                            silabas.push(silaba);
-                            silaba = '';
-                        }
-                        // Si es diptongo, continuar agregando a la misma sílaba
-                    } else {
-                        // Vocal al final de palabra
+            // Si es vocal
+            if (vocales.includes(char)) {
+                // Verificar si hay consonante después
+                if (consonantes.includes(siguiente)) {
+                    const grupo = siguiente + siguiente2;
+                    
+                    // Verificar si es un dígrafo
+                    if (digrafos.includes(grupo)) {
+                        // Cerrar sílaba, el dígrafo va con la siguiente
                         silabas.push(silaba);
                         silaba = '';
                     }
+                    // Verificar grupo consonántico
+                    else if (gruposConsonanticos.includes(grupo)) {
+                        // No separar, el grupo va con la siguiente sílaba
+                        silabas.push(silaba);
+                        silaba = '';
+                    } else if (consonantes.includes(siguiente2)) {
+                        // Dos consonantes normales: la primera va con esta sílaba
+                        silaba += siguiente;
+                        silabas.push(silaba);
+                        silaba = '';
+                        i++;
+                    } else if (vocales.includes(siguiente2)) {
+                        // Consonante entre vocales: va con la siguiente
+                        silabas.push(silaba);
+                        silaba = '';
+                    } else {
+                        // Consonante al final
+                        silaba += siguiente;
+                        silabas.push(silaba);
+                        silaba = '';
+                        i++;
+                    }
+                } else if (vocales.includes(siguiente)) {
+                    // Dos vocales: verificar diptongo
+                    const esDiptongo = (vocalesFuertes.includes(char) && vocalesDebiles.includes(siguiente)) ||
+                                     (vocalesDebiles.includes(char) && vocalesFuertes.includes(siguiente)) ||
+                                     (vocalesDebiles.includes(char) && vocalesDebiles.includes(siguiente));
+                    
+                    if (!esDiptongo) {
+                        // Hiato: separar
+                        silabas.push(silaba);
+                        silaba = '';
+                    }
+                } else {
+                    // Vocal al final de palabra
+                    silabas.push(silaba);
+                    silaba = '';
                 }
             }
-            
-            // Agregar última sílaba si quedó algo
-            if (silaba) {
-                silabas.push(silaba);
-            }
-            
-            return silabas.join('-');
         }
         
-        function procesarTexto() {
-            const texto = textInput.value.trim();
-            
-            if (!texto) {
-                resultBox.textContent = 'Las palabras aparecerán aquí separadas por guiones...';
-                resultBox.classList.add('empty');
-                return;
-            }
-            
-            // Separar por palabras (espacios, puntuación, etc.)
-            const palabras = texto.split(/\s+/);
-            const palabrasSeparadas = palabras.map(palabra => {
-                // Limpiar puntuación pero guardarla
-                const match = palabra.match(/^([^a-záéíóúñü]*)?([a-záéíóúñü]+)([^a-záéíóúñü]*)?$/i);
-                if (match) {
-                    const [, antes, palabraLimpia, despues] = match;
-                    const separada = separarEnSilabas(palabraLimpia);
-                    return (antes || '') + separada + (despues || '');
-                }
-                return palabra;
-            });
-            
-            resultBox.textContent = palabrasSeparadas.join(' ');
-            resultBox.classList.remove('empty');
+        // Agregar última sílaba si quedó algo
+        if (silaba) {
+            silabas.push(silaba);
         }
         
-        // Event listeners
-        textInput.addEventListener('input', procesarTexto);
+        return silabas.join('-');
+    }
+    
+    function procesarTexto() {
+        const texto = textInput.value.trim();
         
-        // Example chips
-        exampleChips.forEach(chip => {
-            chip.addEventListener('click', () => {
-                textInput.value = chip.dataset.word;
-                procesarTexto();
-                textInput.focus();
-            });
-        });
-        
-        // Copy functionality
-        copyBtn.addEventListener('click', async () => {
-            if (!resultBox.classList.contains('empty')) {
-                try {
-                    await navigator.clipboard.writeText(resultBox.textContent);
-                    copyFeedback.classList.add('show');
-                    setTimeout(() => copyFeedback.classList.remove('show'), 2000);
-                } catch (err) {
-                    // Fallback
-                    const textarea = document.createElement('textarea');
-                    textarea.value = resultBox.textContent;
-                    document.body.appendChild(textarea);
-                    textarea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textarea);
-                    copyFeedback.classList.add('show');
-                    setTimeout(() => copyFeedback.classList.remove('show'), 2000);
-                }
-            }
-        });
-        
-        // Clear functionality
-        clearBtn.addEventListener('click', () => {
-            textInput.value = '';
+        if (!texto) {
             resultBox.textContent = 'Las palabras aparecerán aquí separadas por guiones...';
             resultBox.classList.add('empty');
-            textInput.focus();
+            return;
+        }
+        
+        // Separar por palabras (espacios, puntuación, etc.)
+        const palabras = texto.split(/\s+/);
+        const palabrasSeparadas = palabras.map(palabra => {
+            // Limpiar puntuación pero guardarla
+            const match = palabra.match(/^([^a-záéíóúñü]*)?([a-záéíóúñü]+)([^a-záéíóúñü]*)?$/i);
+            if (match) {
+                const [, antes, palabraLimpia, despues] = match;
+                const separada = separarEnSilabas(palabraLimpia);
+                return (antes || '') + separada + (despues || '');
+            }
+            return palabra;
         });
         
-        // Mobile menu toggle
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('mobile-open');
+        resultBox.textContent = palabrasSeparadas.join(' ');
+        resultBox.classList.remove('empty');
+    }
+    
+    // Event listeners
+    textInput.addEventListener('input', procesarTexto);
+    
+    // Example chips
+    exampleChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            textInput.value = chip.dataset.word;
+            procesarTexto();
+            textInput.focus();
         });
-    </script>
+    });
+    
+    // Copy functionality
+    copyBtn.addEventListener('click', async () => {
+        if (!resultBox.classList.contains('empty')) {
+            try {
+                await navigator.clipboard.writeText(resultBox.textContent);
+                copyFeedback.classList.add('show');
+                setTimeout(() => copyFeedback.classList.remove('show'), 2000);
+            } catch (err) {
+                // Fallback
+                const textarea = document.createElement('textarea');
+                textarea.value = resultBox.textContent;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                copyFeedback.classList.add('show');
+                setTimeout(() => copyFeedback.classList.remove('show'), 2000);
+            }
+        }
+    });
+    
+    // Clear functionality
+    clearBtn.addEventListener('click', () => {
+        textInput.value = '';
+        resultBox.textContent = 'Las palabras aparecerán aquí separadas por guiones...';
+        resultBox.classList.add('empty');
+        textInput.focus();
+    });
+    
+    // Mobile menu toggle
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+    });
+</script>
 </body>
 </html>
