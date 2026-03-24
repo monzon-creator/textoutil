@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad | TextoUtil</title>
+    <meta name="description" content="Política de privacidad de TextoUtil. Información sobre el uso de datos, cookies y tus derechos como usuario.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://textoutil.com/privacidad.html">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7175810150016533"
+     crossorigin="anonymous"></script>
+    
+    <style>
+        :root {
+            --bg-primary: #0a0f1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2234;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent: #f97316;
+            --accent-glow: rgba(249, 115, 22, 0.15);
+            --border: #2d3a4f;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Grain overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        /* Navigation */
+        nav {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            margin-top: 1rem;
+        }
+        
+        h1 {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .last-updated {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        /* Content */
+        .content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 2rem 0 1rem;
+        }
+        
+        .content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .content h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 1.5rem 0 0.75rem;
+        }
+        
+        .content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        .content ul {
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        .content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        
+        .content a:hover {
+            opacity: 0.8;
+        }
+        
+        .content strong {
+            color: var(--text-primary);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        footer a:hover {
+            color: var(--accent);
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--bg-secondary);
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+            }
+            
+            .nav-links.mobile-open {
+                display: flex;
+            }
+            
+            .nav-links li {
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 1rem 1.5rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-logo">TextoUtil</a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Contador de Palabras</a></li>
+                <li><a href="/numero-a-letras.html">Números a Letras</a></li>
+                <li><a href="/separador-silabas.html">Separador de Sílabas</a></li>
+            </ul>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <header>
+            <h1>Política de Privacidad</h1>
+            <p class="last-updated">Última actualización: 24 de marzo de 2026</p>
+        </header>
+        
+        <div class="content">
+            <h2>1. Introducción</h2>
+            <p>
+                En TextoUtil, accesible desde textoutil.com, valoramos y respetamos tu privacidad. Esta Política de Privacidad describe qué información recopilamos, cómo la usamos y cuáles son tus derechos respecto a tus datos personales.
+            </p>
+            
+            <h2>2. Información que Recopilamos</h2>
+            
+            <h3>2.1 Información que tú proporcionas</h3>
+            <p>
+                Nuestras herramientas (contador de palabras, conversor de números a letras, separador de sílabas) funcionan completamente en tu navegador. <strong>No almacenamos, guardamos ni enviamos a nuestros servidores el texto que ingresas en las herramientas.</strong> Todo el procesamiento ocurre localmente en tu dispositivo.
+            </p>
+            
+            <h3>2.2 Información recopilada automáticamente</h3>
+            <p>
+                Cuando visitas nuestro sitio, recopilamos automáticamente cierta información mediante cookies y tecnologías similares:
+            </p>
+            <ul>
+                <li>Dirección IP</li>
+                <li>Tipo de navegador</li>
+                <li>Sistema operativo</li>
+                <li>Páginas visitadas y duración de la visita</li>
+                <li>Fuente de referencia (cómo llegaste a nuestro sitio)</li>
+            </ul>
+            
+            <h2>3. Uso de Cookies y Tecnologías Similares</h2>
+            <p>
+                Utilizamos cookies para mejorar tu experiencia y para mostrar publicidad relevante. Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo.
+            </p>
+            
+            <h3>3.1 Google AdSense</h3>
+            <p>
+                Utilizamos Google AdSense para mostrar anuncios en nuestro sitio. Google utiliza cookies para:
+            </p>
+            <ul>
+                <li>Mostrar anuncios personalizados basados en tus intereses</li>
+                <li>Medir la efectividad de los anuncios</li>
+                <li>Evitar mostrarte el mismo anuncio repetidamente</li>
+            </ul>
+            <p>
+                Puedes obtener más información sobre cómo Google usa los datos cuando utilizas sitios web de terceros en: 
+                <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">
+                    https://policies.google.com/technologies/partner-sites
+                </a>
+            </p>
+            
+            <h3>3.2 Gestión de cookies</h3>
+            <p>
+                Puedes configurar tu navegador para rechazar todas las cookies o para que te avise cuando se envíe una cookie. Sin embargo, si rechazas las cookies, es posible que algunas funciones del sitio no funcionen correctamente.
+            </p>
+            
+            <h2>4. Cómo Usamos tu Información</h2>
+            <p>
+                Utilizamos la información recopilada para:
+            </p>
+            <ul>
+                <li>Proporcionar y mantener nuestras herramientas</li>
+                <li>Mejorar la experiencia del usuario</li>
+                <li>Analizar el uso del sitio y mejorar nuestros servicios</li>
+                <li>Mostrar publicidad relevante mediante Google AdSense</li>
+                <li>Cumplir con obligaciones legales</li>
+            </ul>
+            
+            <h2>5. Compartir Información con Terceros</h2>
+            <p>
+                <strong>No vendemos, intercambiamos ni transferimos tu información personal a terceros</strong>, excepto en los siguientes casos:
+            </p>
+            <ul>
+                <li><strong>Google AdSense:</strong> Para mostrar anuncios y analíticas</li>
+                <li><strong>Proveedores de servicios:</strong> Empresas que nos ayudan a operar el sitio (hosting, análisis)</li>
+                <li><strong>Cumplimiento legal:</strong> Cuando sea requerido por ley o para proteger nuestros derechos</li>
+            </ul>
+            
+            <h2>6. Publicidad de Terceros</h2>
+            <p>
+                Los proveedores de publicidad externos, incluyendo Google, utilizan cookies para mostrar anuncios basados en las visitas previas de los usuarios a nuestro sitio web u otros sitios web.
+            </p>
+            <p>
+                Puedes inhabilitar el uso de cookies por parte de Google visitando la 
+                <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">
+                    Configuración de anuncios de Google
+                </a>.
+            </p>
+            
+            <h2>7. Tus Derechos</h2>
+            <p>
+                Dependiendo de tu ubicación, tienes los siguientes derechos respecto a tus datos personales:
+            </p>
+            <ul>
+                <li><strong>Acceso:</strong> Solicitar una copia de los datos que tenemos sobre ti</li>
+                <li><strong>Rectificación:</strong> Solicitar la corrección de datos inexactos</li>
+                <li><strong>Eliminación:</strong> Solicitar la eliminación de tus datos personales</li>
+                <li><strong>Oposición:</strong> Oponerte al procesamiento de tus datos</li>
+                <li><strong>Portabilidad:</strong> Solicitar la transferencia de tus datos a otro servicio</li>
+            </ul>
+            
+            <h2>8. Seguridad de los Datos</h2>
+            <p>
+                Implementamos medidas de seguridad técnicas y organizativas apropiadas para proteger tu información personal contra acceso no autorizado, alteración, divulgación o destrucción.
+            </p>
+            
+            <h2>9. Enlaces a Sitios Externos</h2>
+            <p>
+                Nuestro sitio puede contener enlaces a sitios web de terceros. No somos responsables de las prácticas de privacidad de estos sitios. Te recomendamos leer las políticas de privacidad de cada sitio que visites.
+            </p>
+            
+            <h2>10. Privacidad de Menores</h2>
+            <p>
+                Nuestros servicios no están dirigidos a menores de 13 años. No recopilamos intencionalmente información personal de menores de 13 años. Si descubrimos que hemos recopilado información de un menor de 13 años sin el consentimiento de los padres, eliminaremos esa información de inmediato.
+            </p>
+            
+            <h2>11. Cambios a esta Política de Privacidad</h2>
+            <p>
+                Podemos actualizar esta Política de Privacidad ocasionalmente. Te notificaremos de cualquier cambio publicando la nueva política en esta página y actualizando la fecha de "Última actualización" en la parte superior.
+            </p>
+            
+            <h2>12. Contacto</h2>
+            <p>
+                Si tienes preguntas sobre esta Política de Privacidad o sobre cómo manejamos tus datos personales, puedes contactarnos en:
+            </p>
+            <p>
+                <strong>Sitio web:</strong> <a href="https://textoutil.com">textoutil.com</a>
+            </p>
+            
+            <h2>13. Legislación Aplicable</h2>
+            <p>
+                Esta Política de Privacidad se rige por las leyes aplicables de protección de datos, incluyendo el Reglamento General de Protección de Datos (GDPR) de la Unión Europea y la Ley de Privacidad del Consumidor de California (CCPA).
+            </p>
+        </div>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="/">Contador de Palabras</a>
+                <a href="/numero-a-letras.html">Números a Letras</a>
+                <a href="/separador-silabas.html">Separador de Sílabas</a>
+                <a href="/privacidad.html">Privacidad</a>
+            </div>
+            <p>&copy; 2026 TextoUtil. Todas las herramientas son gratuitas.</p>
+        </footer>
+    </div>
+    
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('mobile-open');
+        });
+    </script>
+</body>
+</html>
