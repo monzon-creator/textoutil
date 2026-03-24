@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Separador de Sílabas Online Gratis | Silabear Palabras | TextoUtil</title>
+    <meta name="description" content="Separa palabras en sílabas automáticamente. Herramienta educativa gratuita para estudiantes, maestros y padres. Aprende a silabear correctamente en español.">
+    <meta name="keywords" content="separador de silabas, silabear palabras, separar en silabas, división silábica, como separar silabas">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="TextoUtil">
+    <link rel="canonical" href="https://textoutil.com/separador-silabas.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Separador de Sílabas Online Gratis">
+    <meta property="og:description" content="Separa palabras en sílabas automáticamente. Herramienta educativa gratuita. Aprende a silabear en español.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://textoutil.com/separador-silabas.html">
+    <meta property="og:locale" content="es_ES">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0f1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2234;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent: #f97316;
+            --accent-glow: rgba(249, 115, 22, 0.15);
+            --border: #2d3a4f;
+            --success: #22c55e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Grain overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        /* Navigation */
+        nav {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--accent);
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            margin-top: 1rem;
+        }
+        
+        .logo {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.0625rem;
+        }
+        
+        /* Ad Space */
+        .ad-space {
+            background: var(--bg-card);
+            border: 1px dashed var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        /* Main Tool */
+        .tool-container {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+        
+        .input-wrapper {
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.9375rem;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 1.25rem;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            resize: vertical;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-glow);
+        }
+        
+        textarea::placeholder {
+            color: var(--text-muted);
+        }
+        
+        /* Result Box */
+        .result-wrapper {
+            margin-bottom: 1.5rem;
+        }
+        
+        .result-box {
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            min-height: 150px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.125rem;
+            line-height: 2;
+            color: var(--accent);
+            word-wrap: break-word;
+        }
+        
+        .result-box.empty {
+            color: var(--text-muted);
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 0.9375rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Examples */
+        .examples {
+            margin-bottom: 1.5rem;
+        }
+        
+        .examples-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .example-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .example-chip {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .example-chip:hover {
+            background: var(--border);
+            color: var(--text-primary);
+            border-color: var(--accent);
+        }
+        
+        /* Actions */
+        .actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--border);
+        }
+        
+        .btn svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .copy-feedback {
+            color: var(--success);
+            font-size: 0.875rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        
+        .copy-feedback.show {
+            opacity: 1;
+        }
+        
+        /* Info Card */
+        .info-card {
+            background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .info-card svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+        
+        .info-card-text {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Content Section */
+        .content-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .content-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .content-section h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+        
+        .content-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .content-section ul {
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-answer {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        footer a:hover {
+            color: var(--accent);
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--bg-secondary);
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+            }
+            
+            .nav-links.mobile-open {
+                display: flex;
+            }
+            
+            .nav-links li {
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 1rem 1.5rem;
+            }
+            
+            .nav-links a.active::after {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            
+            .tool-container {
+                padding: 1rem;
+            }
+            
+            .actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .example-chips {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-logo">TextoUtil</a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Contador de Palabras</a></li>
+                <li><a href="/numero-a-letras.html">Números a Letras</a></li>
+                <li><a href="/separador-silabas.html" class="active">Separador de Sílabas</a></li>
+            </ul>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <header>
+            <div class="logo">HERRAMIENTAS DE TEXTO</div>
+            <h1>Separador de Sílabas</h1>
+            <p class="subtitle">Divide palabras en sílabas automáticamente. Perfecto para aprender y enseñar.</p>
+        </header>
+        
+        <!-- Ad Space Top -->
+        <div class="ad-space">
+            Espacio reservado para anuncios
+        </div>
+        
+        <!-- Main Tool -->
+        <main class="tool-container">
+            <div class="info-card">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div class="info-card-text">
+                    Escribe una o varias palabras y se separarán automáticamente en sílabas.
+                </div>
+            </div>
+            
+            <div class="examples">
+                <div class="examples-label">Ejemplos rápidos:</div>
+                <div class="example-chips">
+                    <span class="example-chip" data-word="murciélago">murciélago</span>
+                    <span class="example-chip" data-word="desarrollo">desarrollo</span>
+                    <span class="example-chip" data-word="extraordinario">extraordinario</span>
+                    <span class="example-chip" data-word="comunicación">comunicación</span>
+                    <span class="example-chip" data-word="tecnología">tecnología</span>
+                </div>
+            </div>
+            
+            <div class="input-wrapper">
+                <label for="textInput" class="input-label">Escribe el texto a separar:</label>
+                <textarea 
+                    id="textInput" 
+                    placeholder="Escribe aquí las palabras que quieres separar en sílabas..."
+                    autofocus
+                ></textarea>
+            </div>
+            
+            <div class="result-wrapper">
+                <label class="input-label">Resultado:</label>
+                <div class="result-box empty" id="resultBox">
+                    Las palabras aparecerán aquí separadas por guiones...
+                </div>
+            </div>
+            
+            <div class="actions">
+                <button class="btn btn-primary" id="copyBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                    Copiar resultado
+                </button>
+                <button class="btn btn-secondary" id="clearBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                    </svg>
+                    Limpiar
+                </button>
+                <span class="copy-feedback" id="copyFeedback">¡Copiado!</span>
+            </div>
+        </main>
+        
+        <!-- Ad Space Middle -->
+        <div class="ad-space">
+            Espacio reservado para anuncios
+        </div>
+        
+        <!-- Content for SEO -->
+        <section class="content-section">
+            <h2>Cómo usar el separador de sílabas</h2>
+            <p>
+                Esta herramienta divide automáticamente cualquier palabra en español en sus sílabas correspondientes. 
+                Solo necesitas escribir o pegar el texto en el cuadro superior y obtendrás las palabras separadas 
+                con guiones entre cada sílaba.
+            </p>
+            
+            <h3>¿Para qué sirve separar palabras en sílabas?</h3>
+            <p>
+                La separación silábica es fundamental en el aprendizaje del español y tiene múltiples aplicaciones:
+            </p>
+            <ul>
+                <li><strong>Educación:</strong> Enseñar a leer y escribir a niños en edad escolar</li>
+                <li><strong>Ortografía:</strong> Identificar dónde colocar tildes según las reglas de acentuación</li>
+                <li><strong>Poesía y métrica:</strong> Contar sílabas para crear versos y estrofas</li>
+                <li><strong>Pronunciación:</strong> Mejorar la dicción y el habla en español</li>
+                <li><strong>Diseño editorial:</strong> Saber dónde partir palabras al final de línea</li>
+            </ul>
+            
+            <h3>Reglas básicas de separación silábica en español</h3>
+            <p>
+                El español sigue reglas específicas para dividir palabras en sílabas. Las principales son:
+            </p>
+            <ul>
+                <li>Una consonante entre vocales se une a la vocal siguiente: <em>ca-sa, pe-lo</em></li>
+                <li>Dos consonantes juntas se separan: <em>al-to, es-tar</em></li>
+                <li>Los grupos consonánticos (br, cr, dr, etc.) no se separan: <em>li-bro, la-drón</em></li>
+                <li>Los diptongos (dos vocales juntas) forman una sílaba: <em>cue-va, ai-re</em></li>
+            </ul>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section class="content-section">
+            <h2>Preguntas frecuentes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Cómo saber cuántas sílabas tiene una palabra?</div>
+                <div class="faq-answer">
+                    Escribe la palabra en esta herramienta y automáticamente te mostrará cada sílaba separada por guiones. 
+                    Luego solo cuenta cuántos segmentos hay. Por ejemplo: "mur-cié-la-go" tiene 4 sílabas.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Funciona con palabras en mayúsculas o con tildes?</div>
+                <div class="faq-answer">
+                    Sí. La herramienta reconoce correctamente palabras en mayúsculas, minúsculas, con tildes y con 
+                    caracteres especiales del español como la ñ.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Puedo separar frases completas?</div>
+                <div class="faq-answer">
+                    Sí. Puedes escribir varias palabras o frases completas. La herramienta procesará cada palabra 
+                    individualmente y te mostrará todas separadas en sílabas.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Es útil para aprender español como segundo idioma?</div>
+                <div class="faq-answer">
+                    Absolutamente. Separar palabras en sílabas ayuda a entender la pronunciación correcta y las reglas 
+                    de acentuación del español, lo cual es esencial para estudiantes de español como lengua extranjera.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Cómo se separan los diptongos?</div>
+                <div class="faq-answer">
+                    Los diptongos (combinaciones de vocal fuerte + débil o débil + fuerte) NO se separan y forman una 
+                    sola sílaba. Por ejemplo: "cau-sa", "cie-lo", "guar-dia". Sin embargo, si llevan tilde en la vocal 
+                    débil, se rompe el diptongo: "dí-a", "Ma-rí-a".
+                </div>
+            </div>
+        </section>
+        
+        <!-- Ad Space Bottom -->
+        <div class="ad-space">
+            Espacio reservado para anuncios
+        </div>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="/">Contador de Palabras</a>
+                <a href="/numero-a-letras.html">Números a Letras</a>
+                <a href="/separador-silabas.html">Separador de Sílabas</a>
+            </div>
+            <p>&copy; 2026 TextoUtil. Todas las herramientas son gratuitas.</p>
+        </footer>
+    </div>
+    
+    <script>
+        const textInput = document.getElementById('textInput');
+        const resultBox = document.getElementById('resultBox');
+        const copyBtn = document.getElementById('copyBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const copyFeedback = document.getElementById('copyFeedback');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const exampleChips = document.querySelectorAll('.example-chip');
+        
+        // Spanish syllable separation rules
+        function separarEnSilabas(palabra) {
+            palabra = palabra.toLowerCase().trim();
+            if (!palabra) return '';
+            
+            // Vocales fuertes y débiles
+            const vocalesFuertes = 'aeoáéó';
+            const vocalesDebiles = 'iuüíú';
+            const vocales = vocalesFuertes + vocalesDebiles;
+            const consonantes = 'bcdfghjklmnñpqrstvwxyz';
+            
+            // Grupos consonánticos que no se separan
+            const gruposConsonanticos = ['bl', 'br', 'cl', 'cr', 'dr', 'fl', 'fr', 'gl', 'gr', 'pl', 'pr', 'tr'];
+            
+            let silabas = [];
+            let silaba = '';
+            
+            for (let i = 0; i < palabra.length; i++) {
+                const char = palabra[i];
+                const siguiente = palabra[i + 1] || '';
+                const siguiente2 = palabra[i + 2] || '';
+                
+                silaba += char;
+                
+                // Si es vocal
+                if (vocales.includes(char)) {
+                    // Verificar si hay consonante después
+                    if (consonantes.includes(siguiente)) {
+                        // Verificar grupo consonántico
+                        const grupo = siguiente + siguiente2;
+                        if (gruposConsonanticos.includes(grupo)) {
+                            // No separar, el grupo va con la siguiente sílaba
+                            silabas.push(silaba);
+                            silaba = '';
+                        } else if (consonantes.includes(siguiente2)) {
+                            // Dos consonantes: la primera va con esta sílaba
+                            silaba += siguiente;
+                            silabas.push(silaba);
+                            silaba = '';
+                            i++;
+                        } else if (vocales.includes(siguiente2)) {
+                            // Consonante entre vocales: va con la siguiente
+                            silabas.push(silaba);
+                            silaba = '';
+                        } else {
+                            // Consonante al final
+                            silaba += siguiente;
+                            silabas.push(silaba);
+                            silaba = '';
+                            i++;
+                        }
+                    } else if (vocales.includes(siguiente)) {
+                        // Dos vocales: verificar diptongo
+                        const esDiptongo = (vocalesFuertes.includes(char) && vocalesDebiles.includes(siguiente)) ||
+                                         (vocalesDebiles.includes(char) && vocalesFuertes.includes(siguiente)) ||
+                                         (vocalesDebiles.includes(char) && vocalesDebiles.includes(siguiente));
+                        
+                        if (!esDiptongo) {
+                            // Hiato: separar
+                            silabas.push(silaba);
+                            silaba = '';
+                        }
+                        // Si es diptongo, continuar agregando a la misma sílaba
+                    } else {
+                        // Vocal al final de palabra
+                        silabas.push(silaba);
+                        silaba = '';
+                    }
+                }
+            }
+            
+            // Agregar última sílaba si quedó algo
+            if (silaba) {
+                silabas.push(silaba);
+            }
+            
+            return silabas.join('-');
+        }
+        
+        function procesarTexto() {
+            const texto = textInput.value.trim();
+            
+            if (!texto) {
+                resultBox.textContent = 'Las palabras aparecerán aquí separadas por guiones...';
+                resultBox.classList.add('empty');
+                return;
+            }
+            
+            // Separar por palabras (espacios, puntuación, etc.)
+            const palabras = texto.split(/\s+/);
+            const palabrasSeparadas = palabras.map(palabra => {
+                // Limpiar puntuación pero guardarla
+                const match = palabra.match(/^([^a-záéíóúñü]*)?([a-záéíóúñü]+)([^a-záéíóúñü]*)?$/i);
+                if (match) {
+                    const [, antes, palabraLimpia, despues] = match;
+                    const separada = separarEnSilabas(palabraLimpia);
+                    return (antes || '') + separada + (despues || '');
+                }
+                return palabra;
+            });
+            
+            resultBox.textContent = palabrasSeparadas.join(' ');
+            resultBox.classList.remove('empty');
+        }
+        
+        // Event listeners
+        textInput.addEventListener('input', procesarTexto);
+        
+        // Example chips
+        exampleChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                textInput.value = chip.dataset.word;
+                procesarTexto();
+                textInput.focus();
+            });
+        });
+        
+        // Copy functionality
+        copyBtn.addEventListener('click', async () => {
+            if (!resultBox.classList.contains('empty')) {
+                try {
+                    await navigator.clipboard.writeText(resultBox.textContent);
+                    copyFeedback.classList.add('show');
+                    setTimeout(() => copyFeedback.classList.remove('show'), 2000);
+                } catch (err) {
+                    // Fallback
+                    const textarea = document.createElement('textarea');
+                    textarea.value = resultBox.textContent;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    copyFeedback.classList.add('show');
+                    setTimeout(() => copyFeedback.classList.remove('show'), 2000);
+                }
+            }
+        });
+        
+        // Clear functionality
+        clearBtn.addEventListener('click', () => {
+            textInput.value = '';
+            resultBox.textContent = 'Las palabras aparecerán aquí separadas por guiones...';
+            resultBox.classList.add('empty');
+            textInput.focus();
+        });
+        
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('mobile-open');
+        });
+    </script>
+</body>
+</html>
