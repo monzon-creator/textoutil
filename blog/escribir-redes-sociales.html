@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Cómo escribir mejor para redes sociales? | TextoUtil</title>
+  <meta name="description" content="Cada red social tiene su propio lenguaje. Guía práctica para adaptar tu escritura a Instagram, LinkedIn, Twitter/X, TikTok y Facebook." />
+  <meta name="keywords" content="escribir para redes sociales, copywriting redes sociales, cómo escribir en instagram, textos para redes sociales, redacción digital" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="César Monzón" />
+  <link rel="canonical" href="https://textoutil.com/blog/escribir-redes-sociales" />
+
+  <meta property="og:title" content="¿Cómo escribir mejor para redes sociales?" />
+  <meta property="og:description" content="Cada red social tiene su propio lenguaje. Guía práctica para adaptar tu escritura a cada plataforma." />
+  <meta property="og:url" content="https://textoutil.com/blog/escribir-redes-sociales" />
+  <meta property="og:type" content="article" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N0SP5GEEYP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N0SP5GEEYP');
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7175810150016533" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --bg-primary: #0a0f1a;
+      --bg-secondary: #111827;
+      --bg-card: #1a2234;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent: #f97316;
+      --border: #2d3a4f;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Instrument Sans', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+
+    nav {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-links a.active { color: var(--accent); }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-menu-btn svg { width: 24px; height: 24px; }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .breadcrumb a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover { color: var(--accent); }
+
+    .article-header { margin-bottom: 2.5rem; }
+
+    .article-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .article-header h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .article-body {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--text-secondary);
+    }
+
+    .article-body p { margin-bottom: 1.5rem; }
+
+    .article-body h2 {
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 2.5rem 0 1rem;
+      line-height: 1.3;
+    }
+
+    .article-body h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 2rem 0 0.75rem;
+    }
+
+    .article-body a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .article-body a:hover { border-bottom-color: var(--accent); }
+    .article-body strong { color: var(--text-primary); font-weight: 600; }
+
+    .article-body ul, .article-body ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .article-body li { margin-bottom: 0.5rem; }
+
+    .highlight-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      font-size: 0.9375rem;
+    }
+
+    .platform-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .platform-card .platform-name {
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .platform-card .platform-name span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .platform-card p {
+      margin-bottom: 0 !important;
+      font-size: 0.9375rem;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 2rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9375rem;
+    }
+
+    th {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-weight: 600;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--bg-card); }
+
+    .cta-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .cta-box p {
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .cta-btn:hover { opacity: 0.9; }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+      }
+      .nav-links.mobile-open { display: flex; }
+      .nav-links li { border-bottom: 1px solid var(--border); }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a { display: block; padding: 1rem 1.5rem; }
+      .nav-links a.active::after { display: none; }
+      .mobile-menu-btn { display: block; }
+      .container { padding: 2rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="nav-logo">TextoUtil</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Contador de Palabras</a></li>
+        <li><a href="/numero-a-letras">Números a Letras</a></li>
+        <li><a href="/separador-silabas">Separador de Sílabas</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a>
+      <span>›</span>
+      <a href="/blog">Blog</a>
+      <span>›</span>
+      <span>Escribir para redes sociales</span>
+    </nav>
+
+    <article>
+
+      <header class="article-header">
+        <span class="article-tag">Redes sociales</span>
+        <h1>¿Cómo escribir mejor para redes sociales?</h1>
+        <div class="article-meta">
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            6 min de lectura
+          </span>
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            7 de abril de 2026
+          </span>
+          <span>Por César Monzón</span>
+        </div>
+      </header>
+
+      <div class="article-body">
+
+        <p>Hay un error muy común que comete casi todo el mundo cuando empieza a gestionar redes sociales: escribir el mismo texto y pegarlo en todas las plataformas. LinkedIn, Instagram, Twitter, Facebook — mismo copy, mismo tono, mismo formato. Y luego se preguntan por qué no funciona.</p>
+
+        <p>No funciona porque cada red social es un contexto diferente. La gente que está en LinkedIn está en modo trabajo. La que está en TikTok está en modo entretenimiento. La que está en Twitter/X está escaneando titulares. Escribirles igual es como hablarle igual a tu jefe, a tu mejor amigo y a tu abuela. Técnicamente funciona, pero claramente algo falla.</p>
+
+        <h2>El principio que lo rige todo: escribe para el contexto, no para la plataforma</h2>
+
+        <p>Antes de pensar en caracteres, algoritmos o hashtags, hay una pregunta más importante: ¿en qué estado mental está la persona que va a leer esto?</p>
+
+        <p>Alguien que abre Instagram a las 9 de la noche está buscando entretenerse o inspirarse, no leer un comunicado corporativo. Alguien que revisa LinkedIn a las 8 de la mañana está en modo profesional y espera contenido que le aporte algo concreto. Ese contexto determina el tono, la extensión y la estructura de lo que escribes mucho más que cualquier regla técnica.</p>
+
+        <h2>Cómo funciona cada plataforma</h2>
+
+        <div class="platform-card">
+          <p class="platform-name">Instagram <span>hasta 2,200 caracteres · óptimo: 125–150 visibles</span></p>
+          <p>Lo que la gente lee es la imagen y los primeros dos renglones del caption. Todo lo demás queda detrás del "ver más". Eso no significa que el texto largo no sirva — sirve para el algoritmo y para quien ya está enganchado — pero el gancho tiene que estar en esas primeras dos líneas. Tono: cercano, personal, con voz propia. Evita sonar como comunicado de prensa.</p>
+        </div>
+
+        <div class="platform-card">
+          <p class="platform-name">LinkedIn <span>hasta 3,000 caracteres · óptimo: 1,300–1,700</span></p>
+          <p>Es la red donde el texto largo funciona mejor, siempre que tenga sustancia. Lo que no funciona es el lenguaje corporativo vacío: "nos complace anunciar", "soluciones innovadoras", "sinergia". Funciona cuando alguien comparte algo real: una lección aprendida, un error cometido, una opinión con argumento. El algoritmo premia las publicaciones que generan comentarios, no solo likes.</p>
+        </div>
+
+        <div class="platform-card">
+          <p class="platform-name">Twitter / X <span>280 caracteres · óptimo: 100–200</span></p>
+          <p>El límite te obliga a ser preciso. Cada palabra tiene que ganarse su lugar. Aquí no hay espacio para introducciones: la idea tiene que estar en la primera oración. Los hilos funcionan bien para desarrollar un argumento, pero cada tweet del hilo tiene que poder sostenerse solo.</p>
+        </div>
+
+        <div class="platform-card">
+          <p class="platform-name">TikTok <span>descripción hasta 2,200 caracteres · lo que importa es el guion del video</span></p>
+          <p>En TikTok el texto que más importa no es el caption, es lo que dices en los primeros tres segundos del video. Si grabas, ese arranque lo es todo. Para el caption: corto, con keywords relevantes y uno o dos hashtags específicos — no diez genéricos.</p>
+        </div>
+
+        <div class="platform-card">
+          <p class="platform-name">Facebook <span>sin límite práctico · óptimo: 40–80 palabras para posts orgánicos</span></p>
+          <p>El alcance orgánico en Facebook lleva años cayendo. Lo que mejor funciona son publicaciones que generan conversación genuina: preguntas, opiniones polarizantes (sin caer en clickbait), historias personales. El texto largo funciona en grupos temáticos donde la gente está ahí específicamente por ese tema.</p>
+        </div>
+
+        <h2>Los errores que más se repiten</h2>
+
+        <p>Después de años trabajando con marcas en redes sociales, estos son los patrones que veo repetirse:</p>
+
+        <ul>
+          <li><strong>Empezar con "En [nombre de empresa] nos dedicamos a..."</strong> Nadie quiere leer eso. Empieza con algo que le importe al lector, no a ti.</li>
+          <li><strong>Usar diez hashtags en LinkedIn.</strong> En LinkedIn los hashtags son para categorizar, no para ganar alcance. Con dos o tres relevantes es suficiente.</li>
+          <li><strong>Escribir párrafos de cinco líneas en Instagram.</strong> En móvil, un párrafo largo se ve como un bloque denso que la gente salta. Párrafos cortos, saltos de línea generosos.</li>
+          <li><strong>El copy de "¡No te lo pierdas!"</strong> La urgencia falsa ya no funciona. La gente está entrenada para ignorarla.</li>
+          <li><strong>Publicar sin CTA.</strong> Si escribes algo y no dejas claro qué quieres que haga la persona después de leerlo, probablemente no haga nada.</li>
+        </ul>
+
+        <h2>Una regla simple para mejorar cualquier texto de redes</h2>
+
+        <p>Antes de publicar, léelo en voz alta. Si suena raro al hablarlo, va a sonar raro al leerlo. Las redes sociales son conversación, no broadcasting. El texto que funciona es el que suena como alguien hablándote, no como un comunicado.</p>
+
+        <div class="highlight-box">
+          <strong>Tip práctico:</strong> Cuando termines de escribir un caption o post, quita la primera oración. En la mayoría de los casos, el texto mejora. La primera oración suele ser la introducción que le explicas a ti mismo lo que vas a decir — el lector no la necesita.
+        </div>
+
+        <h2>El conteo de caracteres importa más de lo que parece</h2>
+
+        <p>No solo por los límites técnicos de cada plataforma, sino porque escribir con restricciones te obliga a priorizar. Cuando sabes que tienes 280 caracteres, eliminas el relleno automáticamente. Cuando escribes un caption de Instagram sabiendo que solo los primeros 125 caracteres se van a ver sin clic, cuidas mucho más esa apertura.</p>
+
+        <p>Si estás armando contenido para varias plataformas y quieres verificar la longitud exacta de cada versión, puedes usar nuestro <a href="/">contador de palabras y caracteres</a> para medirlo al instante.</p>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Plataforma</th>
+                <th>Límite técnico</th>
+                <th>Longitud recomendada</th>
+                <th>Tono</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Instagram</td><td>2,200 caracteres</td><td>125–150 visibles</td><td>Personal, visual</td></tr>
+              <tr><td>LinkedIn</td><td>3,000 caracteres</td><td>1,300–1,700</td><td>Profesional, directo</td></tr>
+              <tr><td>Twitter / X</td><td>280 caracteres</td><td>100–200</td><td>Conciso, opinión</td></tr>
+              <tr><td>TikTok</td><td>2,200 caracteres</td><td>100–150</td><td>Casual, energético</td></tr>
+              <tr><td>Facebook</td><td>Sin límite práctico</td><td>40–80 palabras</td><td>Conversacional</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr />
+
+        <h2>En resumen</h2>
+
+        <p>No existe un copy universal que funcione en todas las redes. Lo que sí existe es un principio que aplica a todas: escribe pensando en quién va a leerlo y en qué momento de su día lo va a encontrar. El formato, la extensión y el tono se ajustan solos una vez que tienes claro ese contexto.</p>
+
+        <p>Y si quieres asegurarte de que tu texto tiene la longitud correcta para cada plataforma antes de publicar, el <a href="/">contador de caracteres</a> te da el número exacto en segundos.</p>
+
+      </div>
+
+    </article>
+
+    <div class="cta-box">
+      <p>¿Quieres medir la longitud exacta de tu copy antes de publicar?</p>
+      <a href="/" class="cta-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Contar caracteres gratis
+      </a>
+    </div>
+
+    <footer>
+      <ul class="footer-links">
+        <li><a href="/">Contador de Palabras</a></li>
+        <li><a href="/numero-a-letras">Números a Letras</a></li>
+        <li><a href="/separador-silabas">Separador de Sílabas</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+        <li><a href="/privacidad">Privacidad</a></li>
+      </ul>
+      <p>&copy; 2026 TextoUtil · Herramientas de texto en español</p>
+    </footer>
+
+  </div>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+    }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "¿Cómo escribir mejor para redes sociales?",
+    "description": "Cada red social tiene su propio lenguaje. Guía práctica para adaptar tu escritura a Instagram, LinkedIn, Twitter/X, TikTok y Facebook.",
+    "author": {
+      "@type": "Person",
+      "name": "César Monzón",
+      "url": "https://textoutil.com/sobre-nosotros"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TextoUtil",
+      "url": "https://textoutil.com"
+    },
+    "datePublished": "2026-04-07",
+    "dateModified": "2026-04-07",
+    "url": "https://textoutil.com/blog/escribir-redes-sociales"
+  }
+  </script>
+
+</body>
+</html>
