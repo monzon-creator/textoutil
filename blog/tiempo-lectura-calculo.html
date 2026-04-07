@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Qué es el tiempo de lectura y cómo se calcula? | TextoUtil</title>
+  <meta name="description" content="El tiempo de lectura estimado no es un número arbitrario. Te explicamos cómo se calcula, qué factores lo afectan y por qué es útil en blogs y contenido digital." />
+  <meta name="keywords" content="tiempo de lectura, cómo calcular tiempo de lectura, velocidad de lectura, palabras por minuto, tiempo lectura blog" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="César Monzón" />
+  <link rel="canonical" href="https://textoutil.com/blog/tiempo-lectura-calculo" />
+  <meta property="og:title" content="¿Qué es el tiempo de lectura y cómo se calcula?" />
+  <meta property="og:description" content="Te explicamos cómo se calcula el tiempo de lectura, qué factores lo afectan y por qué importa en contenido digital." />
+  <meta property="og:url" content="https://textoutil.com/blog/tiempo-lectura-calculo" />
+  <meta property="og:type" content="article" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N0SP5GEEYP"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N0SP5GEEYP');</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7175810150016533" crossorigin="anonymous"></script>
+  <style>
+    :root{--bg-primary:#0a0f1a;--bg-secondary:#111827;--bg-card:#1a2234;--text-primary:#f1f5f9;--text-secondary:#94a3b8;--text-muted:#64748b;--accent:#f97316;--border:#2d3a4f;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Instrument Sans',-apple-system,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.7;}
+    nav{background:var(--bg-secondary);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px);}
+    .nav-container{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px;}
+    .nav-logo{font-size:1.25rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:-0.02em;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{color:var(--text-secondary);text-decoration:none;font-weight:500;font-size:0.9375rem;transition:color 0.2s;position:relative;}
+    .nav-links a:hover{color:var(--text-primary);}
+    .nav-links a.active{color:var(--accent);}
+    .nav-links a.active::after{content:'';position:absolute;bottom:-20px;left:0;width:100%;height:2px;background:var(--accent);}
+    .mobile-menu-btn{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:0.5rem;}
+    .mobile-menu-btn svg{width:24px;height:24px;}
+    .container{max-width:760px;margin:0 auto;padding:3rem 1.5rem 5rem;}
+    .breadcrumb{display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:var(--text-muted);margin-bottom:2rem;}
+    .breadcrumb a{color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
+    .breadcrumb a:hover{color:var(--accent);}
+    .article-header{margin-bottom:2.5rem;}
+    .article-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;}
+    .article-header h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;line-height:1.2;color:var(--text-primary);margin-bottom:1rem;}
+    .article-meta{display:flex;align-items:center;gap:1.5rem;font-size:0.875rem;color:var(--text-muted);flex-wrap:wrap;}
+    .article-meta span{display:flex;align-items:center;gap:0.4rem;}
+    .article-body{font-size:1rem;line-height:1.85;color:var(--text-secondary);}
+    .article-body p{margin-bottom:1.5rem;}
+    .article-body h2{font-size:1.375rem;font-weight:700;color:var(--text-primary);margin:2.5rem 0 1rem;line-height:1.3;}
+    .article-body h3{font-size:1.125rem;font-weight:600;color:var(--text-primary);margin:2rem 0 0.75rem;}
+    .article-body a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.2s;}
+    .article-body a:hover{border-bottom-color:var(--accent);}
+    .article-body strong{color:var(--text-primary);font-weight:600;}
+    .article-body ul,.article-body ol{padding-left:1.5rem;margin-bottom:1.5rem;}
+    .article-body li{margin-bottom:0.5rem;}
+    .highlight-box{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:1.25rem 1.5rem;margin:2rem 0;font-size:0.9375rem;}
+    .formula-box{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:2rem 0;text-align:center;}
+    .formula-box .formula{font-family:'JetBrains Mono',monospace;font-size:1.125rem;color:var(--accent);margin-bottom:0.75rem;}
+    .formula-box p{font-size:0.875rem;color:var(--text-muted);margin:0;}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0;}
+    .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center;}
+    .stat-card .number{font-family:'JetBrains Mono',monospace;font-size:1.75rem;font-weight:700;color:var(--accent);margin-bottom:0.25rem;}
+    .stat-card .label{font-size:0.8125rem;color:var(--text-muted);}
+    .table-wrapper{overflow-x:auto;margin:2rem 0;}
+    table{width:100%;border-collapse:collapse;font-size:0.9375rem;}
+    th{background:var(--bg-card);color:var(--text-primary);font-weight:600;padding:0.75rem 1rem;text-align:left;border-bottom:2px solid var(--border);}
+    td{padding:0.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-secondary);}
+    tr:last-child td{border-bottom:none;}
+    tr:hover td{background:var(--bg-card);}
+    .cta-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem;text-align:center;margin:3rem 0;}
+    .cta-box p{color:var(--text-secondary);margin-bottom:1.25rem;font-size:1rem;}
+    .cta-btn{display:inline-flex;align-items:center;gap:0.5rem;background:var(--accent);color:#fff;font-family:'Instrument Sans',sans-serif;font-size:0.9375rem;font-weight:600;padding:0.75rem 1.5rem;border-radius:8px;text-decoration:none;transition:opacity 0.2s;}
+    .cta-btn:hover{opacity:0.9;}
+    hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0;}
+    footer{text-align:center;padding:3rem 0 2rem;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.875rem;}
+    .footer-links{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap;list-style:none;}
+    footer a{color:var(--text-secondary);text-decoration:none;transition:color 0.2s;}
+    footer a:hover{color:var(--accent);}
+    @media(max-width:768px){.nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-secondary);border-bottom:1px solid var(--border);flex-direction:column;gap:0;padding:0;}.nav-links.mobile-open{display:flex;}.nav-links li{border-bottom:1px solid var(--border);}.nav-links li:last-child{border-bottom:none;}.nav-links a{display:block;padding:1rem 1.5rem;}.nav-links a.active::after{display:none;}.mobile-menu-btn{display:block;}.container{padding:2rem 1.25rem 4rem;}.stat-row{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="nav-logo">TextoUtil</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Contador de Palabras</a></li>
+        <li><a href="/numero-a-letras">Números a Letras</a></li>
+        <li><a href="/separador-silabas">Separador de Sílabas</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a><span>›</span><a href="/blog">Blog</a><span>›</span><span>Tiempo de lectura</span>
+    </nav>
+
+    <article>
+      <header class="article-header">
+        <span class="article-tag">Escritura y lectura</span>
+        <h1>¿Qué es el tiempo de lectura y cómo se calcula?</h1>
+        <div class="article-meta">
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>5 min de lectura</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>7 de abril de 2026</span>
+          <span>Por César Monzón</span>
+        </div>
+      </header>
+
+      <div class="article-body">
+
+        <p>Seguramente has visto en artículos de blog o en plataformas como Medium ese pequeño dato que aparece junto al título: "5 min de lectura", "12 min de lectura". No está puesto al azar. Hay un cálculo detrás, y entender cómo funciona es útil si produces o consumes contenido de forma regular.</p>
+
+        <h2>La fórmula básica</h2>
+
+        <p>El tiempo de lectura estimado se calcula dividiendo el número de palabras del texto entre la velocidad promedio de lectura de un adulto. La velocidad de referencia más usada es de 200 palabras por minuto, aunque algunos estudios la ubican entre 200 y 250.</p>
+
+        <div class="formula-box">
+          <div class="formula">Tiempo de lectura = Número de palabras ÷ 200</div>
+          <p>El resultado está en minutos. Un artículo de 1,000 palabras tarda aproximadamente 5 minutos en leerse.</p>
+        </div>
+
+        <p>Es una estimación, no una medición exacta. La velocidad real varía según la persona, la dificultad del texto y el nivel de atención. Pero como referencia general para planificar o etiquetar contenido, funciona bien.</p>
+
+        <h2>¿Cuántas palabras por minuto lee un adulto?</h2>
+
+        <div class="stat-row">
+          <div class="stat-card"><div class="number">150</div><div class="label">wpm — lectura lenta o texto técnico</div></div>
+          <div class="stat-card"><div class="number">200</div><div class="label">wpm — lectura promedio de adulto</div></div>
+          <div class="stat-card"><div class="number">300+</div><div class="label">wpm — lectores rápidos o entrenados</div></div>
+        </div>
+
+        <p>La mayoría de las herramientas digitales — Medium, WordPress, los contadores de palabras online — usan 200 palabras por minuto como estándar porque es el punto medio más conservador y el que mejor refleja la lectura en pantalla, que tiende a ser más lenta que en papel.</p>
+
+        <h2>¿Por qué la lectura en pantalla es más lenta?</h2>
+
+        <p>Leer en pantalla implica varios factores que ralentizan la velocidad: el brillo, el contraste, el scroll, las distracciones del entorno digital. Estudios de usabilidad web han documentado que la gente no lee en pantalla de la misma forma que en papel — escanea antes de leer, y decide en los primeros segundos si el contenido vale su tiempo.</p>
+
+        <p>Eso no significa que la gente no lea online, sino que el umbral de atención es más corto y la competencia por ese tiempo es más alta.</p>
+
+        <h2>¿Para qué sirve mostrar el tiempo de lectura?</h2>
+
+        <p>Principalmente para gestionar las expectativas del lector. Cuando alguien ve "3 min de lectura" antes de entrar a un artículo, toma una decisión consciente: tiene tiempo para leerlo ahora o lo guarda para después. Eso reduce el rebote inmediato y aumenta la probabilidad de que quien entra realmente lo lea.</p>
+
+        <p>En plataformas como Medium, mostrar el tiempo de lectura también funciona como señal de calidad: un artículo de 8 minutos dice implícitamente que hay suficiente contenido como para que valga la pena invertir ese tiempo.</p>
+
+        <h2>Cuánto tiempo debería durar tu contenido</h2>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr><th>Tipo de contenido</th><th>Palabras aprox.</th><th>Tiempo de lectura</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Post corto en blog</td><td>300–500</td><td>1–2 min</td></tr>
+              <tr><td>Artículo estándar de blog</td><td>800–1,200</td><td>4–6 min</td></tr>
+              <tr><td>Artículo SEO optimizado</td><td>1,500–2,500</td><td>7–12 min</td></tr>
+              <tr><td>Guía completa o tutorial</td><td>2,500–5,000</td><td>12–25 min</td></tr>
+              <tr><td>Email de marketing</td><td>150–300</td><td>1 min</td></tr>
+              <tr><td>Newsletter</td><td>500–800</td><td>2–4 min</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>No hay una longitud universalmente "correcta". Lo que sí hay es una relación entre la profundidad del tema y la extensión natural que ese tema requiere. Un artículo corto sobre un tema complejo probablemente no lo desarrolla bien. Un artículo largo sobre un tema simple probablemente tiene relleno.</p>
+
+        <h2>Un límite que muy poca gente respeta</h2>
+
+        <p>Hay un dato de usabilidad web que lleva años circulando y sigue siendo válido: la mayoría de los visitantes de un artículo no llegan al final. La tasa promedio de scroll completo en artículos largos ronda el 20–30%.</p>
+
+        <p>Eso no significa que los artículos largos sean un error. Significa que la estructura importa tanto como la extensión. Un artículo bien estructurado — con subtítulos claros, párrafos cortos, información clave visible sin tener que scrollear mucho — retiene mejor la atención que uno largo pero mal organizado.</p>
+
+        <div class="highlight-box">
+          <strong>Regla práctica:</strong> Pon la información más importante primero. No guardes la conclusión para el final como si fuera una novela de suspenso. El lector digital decide si seguir leyendo en los primeros 30 segundos, no al terminar el artículo.
+        </div>
+
+        <h2>Cómo calcular el tiempo de lectura de tu texto</h2>
+
+        <p>La forma más rápida es usar un contador de palabras que haga el cálculo automáticamente. Pegas tu texto, obtienes el conteo de palabras y el tiempo estimado de lectura en el mismo paso. Sin fórmulas manuales, sin calculadora.</p>
+
+        <p>Nuestro <a href="/">contador de palabras</a> hace exactamente eso: calcula palabras, caracteres y tiempo de lectura en tiempo real mientras escribes o pegas tu texto.</p>
+
+        <hr />
+
+        <h2>En resumen</h2>
+
+        <p>El tiempo de lectura se calcula dividiendo el número de palabras entre 200. Es una estimación, no una medición exacta, pero funciona bien como referencia para planificar contenido y para que el lector sepa qué esperar antes de entrar a un artículo. La clave no es escribir exactamente la cantidad de palabras que produce cierto tiempo de lectura, sino escribir lo que el tema necesita y estructurarlo bien para que valga la pena ese tiempo.</p>
+
+      </div>
+    </article>
+
+    <div class="cta-box">
+      <p>¿Quieres saber cuánto tiempo tarda en leerse tu texto?</p>
+      <a href="/" class="cta-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Calcular tiempo de lectura gratis
+      </a>
+    </div>
+
+    <footer>
+      <ul class="footer-links">
+        <li><a href="/">Contador de Palabras</a></li>
+        <li><a href="/numero-a-letras">Números a Letras</a></li>
+        <li><a href="/separador-silabas">Separador de Sílabas</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+        <li><a href="/privacidad">Privacidad</a></li>
+      </ul>
+      <p>&copy; 2026 TextoUtil · Herramientas de texto en español</p>
+    </footer>
+  </div>
+
+  <script>
+    const mobileMenuBtn=document.getElementById('mobileMenuBtn');const navLinks=document.getElementById('navLinks');
+    if(mobileMenuBtn){mobileMenuBtn.addEventListener('click',()=>{navLinks.classList.toggle('mobile-open');});}
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"¿Qué es el tiempo de lectura y cómo se calcula?","description":"El tiempo de lectura estimado no es un número arbitrario. Te explicamos cómo se calcula, qué factores lo afectan y por qué es útil en blogs y contenido digital.","author":{"@type":"Person","name":"César Monzón","url":"https://textoutil.com/sobre-nosotros"},"publisher":{"@type":"Organization","name":"TextoUtil","url":"https://textoutil.com"},"datePublished":"2026-04-07","dateModified":"2026-04-07","url":"https://textoutil.com/blog/tiempo-lectura-calculo"}</script>
+</body>
+</html>
