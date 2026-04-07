@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Cuál es la diferencia entre sílaba, fonema y letra? | TextoUtil</title>
+  <meta name="description" content="Sílaba, fonema y letra suenan parecido pero son cosas distintas. Te explicamos cada concepto con ejemplos claros, sin tecnicismos innecesarios." />
+  <meta name="keywords" content="diferencia silaba fonema letra, qué es un fonema, qué es una sílaba, fonema y letra, sílaba español" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="César Monzón" />
+  <link rel="canonical" href="https://textoutil.com/blog/silaba-fonema-letra" />
+  <meta property="og:title" content="¿Cuál es la diferencia entre sílaba, fonema y letra?" />
+  <meta property="og:description" content="Sílaba, fonema y letra suenan parecido pero son cosas distintas. Te explicamos cada concepto con ejemplos claros." />
+  <meta property="og:url" content="https://textoutil.com/blog/silaba-fonema-letra" />
+  <meta property="og:type" content="article" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N0SP5GEEYP"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N0SP5GEEYP');</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7175810150016533" crossorigin="anonymous"></script>
+  <style>
+    :root{--bg-primary:#0a0f1a;--bg-secondary:#111827;--bg-card:#1a2234;--text-primary:#f1f5f9;--text-secondary:#94a3b8;--text-muted:#64748b;--accent:#f97316;--border:#2d3a4f;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Instrument Sans',-apple-system,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.7;}
+    nav{background:var(--bg-secondary);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px);}
+    .nav-container{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px;}
+    .nav-logo{font-size:1.25rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:-0.02em;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{color:var(--text-secondary);text-decoration:none;font-weight:500;font-size:0.9375rem;transition:color 0.2s;position:relative;}
+    .nav-links a:hover{color:var(--text-primary);}
+    .nav-links a.active{color:var(--accent);}
+    .nav-links a.active::after{content:'';position:absolute;bottom:-20px;left:0;width:100%;height:2px;background:var(--accent);}
+    .mobile-menu-btn{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:0.5rem;}
+    .mobile-menu-btn svg{width:24px;height:24px;}
+    .container{max-width:760px;margin:0 auto;padding:3rem 1.5rem 5rem;}
+    .breadcrumb{display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:var(--text-muted);margin-bottom:2rem;}
+    .breadcrumb a{color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
+    .breadcrumb a:hover{color:var(--accent);}
+    .article-header{margin-bottom:2.5rem;}
+    .article-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;}
+    .article-header h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;line-height:1.2;color:var(--text-primary);margin-bottom:1rem;}
+    .article-meta{display:flex;align-items:center;gap:1.5rem;font-size:0.875rem;color:var(--text-muted);flex-wrap:wrap;}
+    .article-meta span{display:flex;align-items:center;gap:0.4rem;}
+    .article-body{font-size:1rem;line-height:1.85;color:var(--text-secondary);}
+    .article-body p{margin-bottom:1.5rem;}
+    .article-body h2{font-size:1.375rem;font-weight:700;color:var(--text-primary);margin:2.5rem 0 1rem;line-height:1.3;}
+    .article-body h3{font-size:1.125rem;font-weight:600;color:var(--text-primary);margin:2rem 0 0.75rem;}
+    .article-body a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.2s;}
+    .article-body a:hover{border-bottom-color:var(--accent);}
+    .article-body strong{color:var(--text-primary);font-weight:600;}
+    .article-body ul,.article-body ol{padding-left:1.5rem;margin-bottom:1.5rem;}
+    .article-body li{margin-bottom:0.5rem;}
+    .highlight-box{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:1.25rem 1.5rem;margin:2rem 0;font-size:0.9375rem;}
+    .example-box{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;margin:1.5rem 0;}
+    .example-box .word{font-family:'JetBrains Mono',monospace;font-size:1.5rem;color:var(--accent);font-weight:700;margin-bottom:0.75rem;}
+    .example-box .breakdown{display:flex;gap:1rem;flex-wrap:wrap;font-size:0.875rem;color:var(--text-secondary);}
+    .example-box .breakdown span{background:var(--bg-primary);border:1px solid var(--border);padding:0.25rem 0.75rem;border-radius:6px;}
+    .table-wrapper{overflow-x:auto;margin:2rem 0;}
+    table{width:100%;border-collapse:collapse;font-size:0.9375rem;}
+    th{background:var(--bg-card);color:var(--text-primary);font-weight:600;padding:0.75rem 1rem;text-align:left;border-bottom:2px solid var(--border);}
+    td{padding:0.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-secondary);}
+    tr:last-child td{border-bottom:none;}
+    tr:hover td{background:var(--bg-card);}
+    .cta-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem;text-align:center;margin:3rem 0;}
+    .cta-box p{color:var(--text-secondary);margin-bottom:1.25rem;font-size:1rem;}
+    .cta-btn{display:inline-flex;align-items:center;gap:0.5rem;background:var(--accent);color:#fff;font-family:'Instrument Sans',sans-serif;font-size:0.9375rem;font-weight:600;padding:0.75rem 1.5rem;border-radius:8px;text-decoration:none;transition:opacity 0.2s;}
+    .cta-btn:hover{opacity:0.9;}
+    hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0;}
+    footer{text-align:center;padding:3rem 0 2rem;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.875rem;}
+    .footer-links{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap;list-style:none;}
+    footer a{color:var(--text-secondary);text-decoration:none;transition:color 0.2s;}
+    footer a:hover{color:var(--accent);}
+    @media(max-width:768px){.nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-secondary);border-bottom:1px solid var(--border);flex-direction:column;gap:0;padding:0;}.nav-links.mobile-open{display:flex;}.nav-links li{border-bottom:1px solid var(--border);}.nav-links li:last-child{border-bottom:none;}.nav-links a{display:block;padding:1rem 1.5rem;}.nav-links a.active::after{display:none;}.mobile-menu-btn{display:block;}.container{padding:2rem 1.25rem 4rem;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="nav-logo">TextoUtil</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Contador de Palabras</a></li>
+        <li><a href="/numero-a-letras">Números a Letras</a></li>
+        <li><a href="/separador-silabas">Separador de Sílabas</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a><span>›</span><a href="/blog">Blog</a><span>›</span><span>Sílaba, fonema y letra</span>
+    </nav>
+
+    <article>
+      <header class="article-header">
+        <span class="article-tag">Lengua española</span>
+        <h1>¿Cuál es la diferencia entre sílaba, fonema y letra?</h1>
+        <div class="article-meta">
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>5 min de lectura</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>7 de abril de 2026</span>
+          <span>Por César Monzón</span>
+        </div>
+      </header>
+
+      <div class="article-body">
+
+        <p>Si alguna vez te pusiste a pensar en cuántas letras tiene una palabra y cuántos sonidos tiene esa misma palabra, y notaste que el número no siempre coincide, estás en el terreno correcto. La palabra "guerra", por ejemplo, tiene seis letras pero solo cuatro sonidos. ¿Por qué? Porque letras, fonemas y sílabas son tres cosas distintas que a veces se confunden.</p>
+
+        <p>Vamos por partes.</p>
+
+        <h2>La letra: lo que escribes</h2>
+
+        <p>Una letra es simplemente un símbolo gráfico. Es lo que ves cuando lees y lo que trazas cuando escribes. El abecedario del español tiene 27 letras, desde la a hasta la z, incluyendo la ñ.</p>
+
+        <p>La letra existe en el papel, en la pantalla, en la pizarra. Es la representación visual de un sonido, pero no es el sonido en sí mismo.</p>
+
+        <div class="highlight-box">
+          <strong>Un detalle importante:</strong> no siempre hay una correspondencia exacta entre letras y sonidos. La letra "h" en español no representa ningún sonido — es muda. La "c" puede sonar como /k/ (en "casa") o como /s/ o /θ/ (en "cena", dependiendo de la variedad del español). La "v" y la "b" se pronuncian igual en la mayoría de los países hispanohablantes, aunque se escriben diferente.
+        </div>
+
+        <h2>El fonema: lo que pronuncias</h2>
+
+        <p>El fonema es la unidad mínima de sonido de una lengua. No se puede dividir en algo más pequeño. Es lo que tu boca produce y lo que tu oído escucha.</p>
+
+        <p>El español tiene 24 fonemas: 5 vocálicos (/a/, /e/, /i/, /o/, /u/) y 19 consonánticos. Lo importante es que los fonemas son unidades funcionales: cambiar un fonema cambia el significado de una palabra.</p>
+
+        <p>Por ejemplo: "pato" y "gato" se diferencian solo por el primer fonema. Cambias /p/ por /g/ y tienes una palabra completamente diferente. Ese es el poder de los fonemas — son las piezas que construyen el significado.</p>
+
+        <div class="example-box">
+          <div class="word">guerra</div>
+          <div class="breakdown">
+            <span>6 letras: g-u-e-r-r-a</span>
+            <span>4 fonemas: /g/-/e/-/r/-/a/</span>
+          </div>
+          <p style="margin-top:0.75rem;font-size:0.875rem;color:var(--text-muted);">La "u" después de "g" es muda. La doble "r" es un solo fonema /r/ fuerte.</p>
+        </div>
+
+        <div class="example-box">
+          <div class="word">taxi</div>
+          <div class="breakdown">
+            <span>4 letras: t-a-x-i</span>
+            <span>5 fonemas: /t/-/a/-/k/-/s/-/i/</span>
+          </div>
+          <p style="margin-top:0.75rem;font-size:0.875rem;color:var(--text-muted);">La "x" representa dos fonemas: /k/ + /s/.</p>
+        </div>
+
+        <h2>La sílaba: lo que agrupas al hablar</h2>
+
+        <p>La sílaba es una unidad de sonido más grande que el fonema. Es el golpe de voz con el que pronunciamos una palabra. Cuando hablas en voz alta y separas una palabra, estás dividiendo en sílabas: ca-sa, mur-cié-la-go, te-lé-fo-no.</p>
+
+        <p>Cada sílaba necesita al menos una vocal — esa vocal es el núcleo. Las consonantes se organizan alrededor de ella. Una sílaba puede ser tan simple como una vocal sola (la "a" en "a-zul") o tan compleja como una secuencia de varios sonidos (la "trans" en "trans-por-tar").</p>
+
+        <div class="example-box">
+          <div class="word">murciélago</div>
+          <div class="breakdown">
+            <span>10 letras</span>
+            <span>9 fonemas</span>
+            <span>4 sílabas: mur·cié·la·go</span>
+          </div>
+        </div>
+
+        <h2>¿Por qué no coinciden letras y fonemas?</h2>
+
+        <p>Esta es la pregunta que más confunde. En español, el sistema de escritura es bastante fonético — es decir, las letras corresponden a sonidos con bastante consistencia. Pero no es perfecto. Hay casos donde la correspondencia falla:</p>
+
+        <ul>
+          <li><strong>La "h" es siempre muda:</strong> "hola" tiene 4 letras pero 3 fonemas (/o/-/l/-/a/).</li>
+          <li><strong>Los dígrafos representan un solo fonema:</strong> "ll", "ch", "rr", "gu", "qu" son combinaciones de dos letras que producen un solo sonido.</li>
+          <li><strong>Una letra puede representar dos fonemas:</strong> la "x" en "taxi" suena como /ks/.</li>
+          <li><strong>Dos letras pueden representar el mismo fonema:</strong> "b" y "v" suenan igual; "c", "k" y "qu" pueden sonar como /k/.</li>
+        </ul>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr><th>Concepto</th><th>¿Qué es?</th><th>Ejemplo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Letra</strong></td><td>Símbolo gráfico escrito</td><td>"guerra" = 6 letras</td></tr>
+              <tr><td><strong>Fonema</strong></td><td>Unidad mínima de sonido</td><td>"guerra" = 4 fonemas</td></tr>
+              <tr><td><strong>Sílaba</strong></td><td>Grupo de sonidos pronunciados juntos</td><td>"gue·rra" = 2 sílabas</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>¿Para qué sirve saber esto?</h2>
+
+        <p>Más allá del examen de gramática, entender la diferencia entre estos tres conceptos tiene aplicaciones prácticas. En lectoescritura infantil, la conciencia fonológica — la capacidad de identificar y manipular fonemas y sílabas — es uno de los predictores más sólidos del aprendizaje de la lectura. Los niños que aprenden a segmentar palabras en sílabas y a identificar fonemas tienen menos dificultades para aprender a leer.</p>
+
+        <p>En corrección de textos, entender por qué ciertas palabras se escriben de cierta manera (la "h" muda, la diferencia entre "b" y "v") es más fácil cuando tienes clara la diferencia entre el sonido y su representación gráfica.</p>
+
+        <p>Y si estás enseñando español como segunda lengua, o ayudando a un niño con sus tareas, tener estos conceptos claros hace que las explicaciones sean mucho más sencillas.</p>
+
+        <hr />
+
+        <h2>En resumen</h2>
+
+        <p>La <strong>letra</strong> es lo que escribes. El <strong>fonema</strong> es lo que pronuncias. La <strong>sílaba</strong> es cómo agrupas los sonidos al hablar. Los tres están relacionados, pero no son lo mismo — y en español, esa diferencia importa porque la correspondencia entre escritura y pronunciación no es siempre perfecta.</p>
+
+        <p>Si quieres practicar la separación silábica de cualquier palabra, puedes usar nuestro <a href="/separador-silabas">separador de sílabas</a> gratuito.</p>
+
+      </div>
+    </article>
+
+    <div class="cta-box">
+      <p>¿Quieres separar una palabra en sílabas al instante?</p>
+      <a href="/separador-silabas" class="cta-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h8m-8 6h16"/></svg>
+        Usar el Separador de Sílabas
+      </a>
+    </div>
+
+    <footer>
+      <ul class="footer-links">
+        <li><a href="/">Contador de Palabras</a></li>
+        <li><a href="/numero-a-letras">Números a Letras</a></li>
+        <li><a href="/separador-silabas">Separador de Sílabas</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+        <li><a href="/privacidad">Privacidad</a></li>
+      </ul>
+      <p>&copy; 2026 TextoUtil · Herramientas de texto en español</p>
+    </footer>
+  </div>
+
+  <script>
+    const mobileMenuBtn=document.getElementById('mobileMenuBtn');const navLinks=document.getElementById('navLinks');
+    if(mobileMenuBtn){mobileMenuBtn.addEventListener('click',()=>{navLinks.classList.toggle('mobile-open');});}
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"¿Cuál es la diferencia entre sílaba, fonema y letra?","description":"Sílaba, fonema y letra suenan parecido pero son cosas distintas. Te explicamos cada concepto con ejemplos claros.","author":{"@type":"Person","name":"César Monzón","url":"https://textoutil.com/sobre-nosotros"},"publisher":{"@type":"Organization","name":"TextoUtil","url":"https://textoutil.com"},"datePublished":"2026-04-07","dateModified":"2026-04-07","url":"https://textoutil.com/blog/silaba-fonema-letra"}</script>
+</body>
+</html>
