@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Nosotros — TextoUtil</title>
+  <meta name="description" content="Conoce quién está detrás de TextoUtil: César Monzón, consultor de marketing digital con 14 años de experiencia y profesor universitario en la Universidad del Valle de México." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://textoutil.com/sobre-nosotros" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sobre Nosotros — TextoUtil" />
+  <meta property="og:description" content="Conoce quién está detrás de TextoUtil: César Monzón, consultor de marketing digital con 14 años de experiencia." />
+  <meta property="og:url" content="https://textoutil.com/sobre-nosotros" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N0SP5GEEYP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N0SP5GEEYP');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f1117;
+      --bg2: #1a1d27;
+      --bg3: #22263a;
+      --border: #2e3347;
+      --text: #e8eaf0;
+      --muted: #8b90a0;
+      --accent: #f97316;
+      --accent-hover: #fb923c;
+      --font-main: 'Instrument Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-main);
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 17, 23, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: var(--bg2);
+    }
+
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    /* MAIN */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    /* HEADER */
+    .page-header {
+      margin-bottom: 48px;
+    }
+
+    .page-header .label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .page-header h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .page-header p {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 580px;
+    }
+
+    /* CONTENT */
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .content p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .content p a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .content p a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* PROFILE CARD */
+    .profile-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 8px 0;
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    .profile-photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .profile-info { flex: 1; }
+
+    .profile-card .name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .profile-card .title {
+      font-size: 14px;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      margin-bottom: 12px;
+    }
+
+    .profile-card .bio {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .profile-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .profile-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .profile-links a:hover {
+      color: var(--text);
+      border-color: var(--accent);
+    }
+
+    /* DIVIDER */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 8px 0;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 600px) {
+      .profile-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+      .profile-links { justify-content: center; }
+      main { padding: 40px 20px 72px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">TextoUtil</a>
+    <ul class="nav-links">
+      <li><a href="/">Contador de Palabras</a></li>
+      <li><a href="/numero-a-letras">Números a Letras</a></li>
+      <li><a href="/separador-silabas">Separador de Sílabas</a></li>
+      <li><a href="/sobre-nosotros" class="active">Sobre Nosotros</a></li>
+      <li><a href="/contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <header class="page-header">
+      <p class="label">Quiénes somos</p>
+      <h1>Herramientas que hacen el trabajo, sin complicaciones.</h1>
+      <p>TextoUtil nació de una necesidad muy concreta: tener a la mano las herramientas de texto que uno usa todo el tiempo, sin anuncios invasivos, sin registros, sin pasos extra.</p>
+    </header>
+
+    <div class="content">
+
+      <p>Soy César Monzón, consultor de marketing digital y Director de Estrategia en <a href="https://www.alkemy.com" target="_blank" rel="noopener">Alkemy</a>. Llevo <span class="highlight">14 años</span> trabajando en el ecosistema digital: desde gestión de redes sociales hasta el desarrollo de estrategias completas para marcas como el Tecnológico de Monterrey, Sony, Citibanamex y Grupo Salinas.</p>
+
+      <p>También soy profesor en la <strong>Universidad del Valle de México</strong>, donde imparto dos diplomados: <em>Marketing Digital Estratégico, Redes Sociales e Inteligencia Artificial Aplicada</em> y <em>Redes Sociales y Venta en Línea</em>. Trabajar con ejecutivos y emprendedores en esos programas me hizo ver algo muy claro: la gente necesita herramientas que <span class="highlight">simplemente funcionen</span>. Sin curva de aprendizaje, sin fricción.</p>
+
+      <p>TextoUtil empezó así. Mis alumnos necesitaban contar palabras, convertir números a texto para un contrato, separar sílabas para un ejercicio de copywriting. Buscaban en Google, llegaban a sitios lentos o llenos de distracciones, y perdían tiempo que no tenían. Decidí construir algo mejor.</p>
+
+      <hr />
+
+      <p>El objetivo de este sitio es simple: tener una colección de herramientas de texto útiles, rápidas y en español. Herramientas que cualquier persona pueda usar desde el navegador, sin instalar nada y sin crear una cuenta. <span class="highlight">Gratuitas.</span></p>
+
+      <p>Cada herramienta está construida pensando en escritores, estudiantes, redactores, docentes y cualquier persona que trabaje con texto de manera regular. Si alguna vez te faltó una herramienta que no encontraste aquí, me puedes escribir desde la página de <a href="/contacto">contacto</a>. Leo todos los mensajes.</p>
+
+      <div class="profile-card">
+        <img
+          src="https://github.com/monzon-creator/textoutil/blob/main/img/Foto_Cesar_Monzon.jpg?raw=true"
+          alt="César Monzón García"
+          class="profile-photo"
+        />
+        <div class="profile-info">
+          <p class="name">César Monzón García</p>
+          <p class="title">Lic. en Mercadotecnia · Maestría en Comunicación y Comercio Electrónico</p>
+          <p class="bio">Director de Estrategia en Alkemy · Profesor en la Universidad del Valle de México · 14 años en marketing digital</p>
+          <div class="profile-links">
+            <a href="https://www.linkedin.com/in/cesarmonzongarcia/" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://www.monzonmkt.com" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              monzonmkt.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <ul class="footer-links">
+      <li><a href="/">Contador de Palabras</a></li>
+      <li><a href="/numero-a-letras">Números a Letras</a></li>
+      <li><a href="/separador-silabas">Separador de Sílabas</a></li>
+      <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+      <li><a href="/contacto">Contacto</a></li>
+      <li><a href="/privacidad">Privacidad</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 TextoUtil · Herramientas de texto en español</p>
+  </footer>
+
+</body>
+</html>
