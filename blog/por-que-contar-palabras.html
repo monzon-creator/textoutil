@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Por qué es importante contar palabras en un texto? | TextoUtil</title>
+  <meta name="description" content="Contar palabras no es solo cumplir un requisito. Te explicamos por qué importa en trabajos académicos, redes sociales, SEO y redacción profesional." />
+  <meta name="keywords" content="por qué contar palabras, importancia de contar palabras, contador de palabras, contar palabras online, límite de palabras" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="César Monzón" />
+  <link rel="canonical" href="https://textoutil.com/blog/por-que-contar-palabras" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="¿Por qué es importante contar palabras en un texto?" />
+  <meta property="og:description" content="Contar palabras no es solo cumplir un requisito. Te explicamos por qué importa en trabajos académicos, redes sociales, SEO y redacción profesional." />
+  <meta property="og:url" content="https://textoutil.com/blog/por-que-contar-palabras" />
+  <meta property="og:type" content="article" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N0SP5GEEYP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N0SP5GEEYP');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7175810150016533" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --bg-primary: #0a0f1a;
+      --bg-secondary: #111827;
+      --bg-card: #1a2234;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent: #f97316;
+      --border: #2d3a4f;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Instrument Sans', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-links a.active { color: var(--accent); }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-menu-btn svg { width: 24px; height: 24px; }
+
+    /* LAYOUT */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .breadcrumb a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--text-muted); }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .article-header h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* ARTICLE BODY */
+    .article-body {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--text-secondary);
+    }
+
+    .article-body p {
+      margin-bottom: 1.5rem;
+    }
+
+    .article-body h2 {
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 2.5rem 0 1rem;
+      line-height: 1.3;
+    }
+
+    .article-body h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 2rem 0 0.75rem;
+    }
+
+    .article-body a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .article-body a:hover { border-bottom-color: var(--accent); }
+
+    .article-body strong { color: var(--text-primary); font-weight: 600; }
+
+    .article-body ul, .article-body ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .article-body li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* HIGHLIGHT BOX */
+    .highlight-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      font-size: 0.9375rem;
+    }
+
+    /* TABLE */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 2rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9375rem;
+    }
+
+    th {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-weight: 600;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--bg-card); }
+
+    /* CTA */
+    .cta-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .cta-box p {
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .cta-btn:hover { opacity: 0.9; }
+
+    /* DIVIDER */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+      }
+      .nav-links.mobile-open { display: flex; }
+      .nav-links li { border-bottom: 1px solid var(--border); }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a { display: block; padding: 1rem 1.5rem; }
+      .nav-links a.active::after { display: none; }
+      .mobile-menu-btn { display: block; }
+      .container { padding: 2rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="nav-logo">TextoUtil</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Contador de Palabras</a></li>
+        <li><a href="/numero-a-letras">Números a Letras</a></li>
+        <li><a href="/separador-silabas">Separador de Sílabas</a></li>
+        <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE -->
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a>
+      <span>›</span>
+      <a href="/blog">Blog</a>
+      <span>›</span>
+      <span>¿Por qué contar palabras?</span>
+    </nav>
+
+    <article>
+
+      <header class="article-header">
+        <span class="article-tag">Redacción y escritura</span>
+        <h1>¿Por qué es importante contar palabras en un texto?</h1>
+        <div class="article-meta">
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            5 min de lectura
+          </span>
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            7 de abril de 2026
+          </span>
+          <span>Por César Monzón</span>
+        </div>
+      </header>
+
+      <div class="article-body">
+
+        <p>La primera vez que alguien me pidió que entregara un ensayo de "exactamente 500 palabras", pensé que era un capricho del profesor. Con el tiempo entendí que no era un capricho: era una forma de enseñarme a ser preciso. Ni más, ni menos. Decir lo que tienes que decir sin relleno innecesario y sin dejar nada fuera.</p>
+
+        <p>Contar palabras parece una tarea mecánica, casi aburrida. Pero detrás de ese número hay una disciplina de comunicación que aplica por igual a estudiantes, escritores, redactores de contenido y cualquier persona que trabaje con texto regularmente.</p>
+
+        <h2>¿Cuándo realmente necesitas saber cuántas palabras tienes?</h2>
+
+        <p>Hay contextos muy concretos donde el conteo de palabras no es opcional:</p>
+
+        <h3>Trabajos académicos</h3>
+        <p>Las universidades e institutos fijan límites de palabras por una razón: obligan al estudiante a desarrollar una idea con profundidad suficiente, pero sin divagar. Un ensayo de 800 palabras cuando el mínimo era 1,200 dice que no desarrollaste el argumento. Uno de 2,000 cuando el máximo era 1,500 dice que no sabes editar tu propio trabajo. Ambas situaciones afectan la calificación.</p>
+
+        <h3>Contenido para redes sociales</h3>
+        <p>Cada plataforma tiene sus propias reglas. Twitter/X te corta en 280 caracteres si te pasas. LinkedIn penaliza publicaciones demasiado cortas porque el algoritmo las considera de poco valor. Instagram permite hasta 2,200 caracteres en el caption, pero los estudios muestran que los primeros 125 son los que realmente se leen antes del "ver más". Saber cuánto estás escribiendo te ayuda a ajustar el mensaje a donde va.</p>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Plataforma</th>
+                <th>Límite</th>
+                <th>Longitud óptima</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Twitter / X</td><td>280 caracteres</td><td>100–200 caracteres</td></tr>
+              <tr><td>Instagram</td><td>2,200 caracteres</td><td>125–150 caracteres visibles</td></tr>
+              <tr><td>LinkedIn</td><td>3,000 caracteres</td><td>1,300–1,700 caracteres</td></tr>
+              <tr><td>Facebook</td><td>63,206 caracteres</td><td>40–80 palabras</td></tr>
+              <tr><td>TikTok (descripción)</td><td>2,200 caracteres</td><td>100–150 caracteres</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>SEO y blogs</h3>
+        <p>En marketing de contenidos, la extensión de un artículo importa. No porque Google cuente palabras como un profesor, sino porque los artículos más largos tienden a cubrir un tema con mayor profundidad, lo que genera más tiempo de permanencia en la página y más probabilidades de que otros sitios los enlacen. La mayoría de los artículos que aparecen en la primera página de Google tienen entre 1,500 y 2,500 palabras. Eso no significa que debas escribir relleno hasta llegar a ese número, sino que un tema bien desarrollado naturalmente llega ahí.</p>
+
+        <h3>Redacción profesional y copywriting</h3>
+        <p>Un copy para un anuncio de Google tiene máximo 90 caracteres en el título y 90 en la descripción. Un guion de video de 60 segundos necesita aproximadamente 130–150 palabras. Una meta descripción que se muestre completa en Google no debe superar los 155 caracteres. En copywriting, cada carácter cuenta porque el espacio es literalmente limitado y el costo de pasarse puede ser que tu texto aparezca cortado.</p>
+
+        <h2>Contar palabras también sirve para mejorar tu escritura</h2>
+
+        <p>Más allá de cumplir límites, revisar el conteo de tus textos te da información útil sobre cómo escribes.</p>
+
+        <p>Si tus oraciones promedian más de 25 palabras, probablemente estás escribiendo de forma demasiado compleja. Si tus párrafos superan las 100 palabras con frecuencia, es señal de que estás empaquetando demasiadas ideas en un mismo bloque. Ninguna de las dos cosas es un pecado, pero son señales de que el texto podría ser más fácil de leer.</p>
+
+        <div class="highlight-box">
+          <strong>Un dato útil:</strong> La mayoría de los lectores digitales escanean antes de leer. Párrafos cortos, oraciones directas y subtítulos cada 200–300 palabras aumentan significativamente la probabilidad de que alguien lea tu texto completo y no solo los primeros renglones.
+        </div>
+
+        <h2>¿Cuántas palabras debe tener un texto según su tipo?</h2>
+
+        <p>No existe una respuesta universal, pero hay rangos generalmente aceptados que sirven como referencia:</p>
+
+        <ul>
+          <li><strong>Email profesional:</strong> 50–125 palabras</li>
+          <li><strong>Publicación en blog (básica):</strong> 500–800 palabras</li>
+          <li><strong>Artículo de blog optimizado para SEO:</strong> 1,500–2,500 palabras</li>
+          <li><strong>Ensayo académico estándar:</strong> 1,000–5,000 palabras (según nivel)</li>
+          <li><strong>Abstract o resumen académico:</strong> 150–300 palabras</li>
+          <li><strong>Cuento corto:</strong> 1,000–7,500 palabras</li>
+          <li><strong>Novela:</strong> 70,000–100,000 palabras</li>
+        </ul>
+
+        <p>Estos rangos no son reglas absolutas. Son puntos de referencia que te ayudan a saber si estás dentro de un rango razonable para el tipo de texto que estás escribiendo.</p>
+
+        <h2>¿Cómo contar palabras fácilmente?</h2>
+
+        <p>La forma más rápida es usar una herramienta online. Pegas tu texto, obtienes el conteo al instante, sin instalar nada ni crear una cuenta. Si estás en Word o Google Docs, ambos tienen contadores integrados, pero tienen una limitación: solo te dan el total del documento. Si necesitas contar una sección específica o un texto que estás armando fuera de esos editores, una herramienta en línea es más práctica.</p>
+
+        <cta-box></cta-box>
+
+        <hr />
+
+        <h2>En resumen</h2>
+
+        <p>Contar palabras no es burocracia. Es una forma de medir si tu texto tiene el peso adecuado para lo que quieres comunicar. Muy corto puede significar que faltó desarrollo. Muy largo puede significar que sobró relleno. El número exacto depende del contexto, pero tenerlo presente mientras escribes es un hábito que mejora la calidad de cualquier texto.</p>
+
+        <p>Si estás trabajando en algo ahora mismo y quieres saber exactamente cuántas palabras llevas, puedes usar nuestro <a href="/">contador de palabras</a> gratuito. Sin registro, sin límites.</p>
+
+      </div>
+
+    </article>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <p>¿Quieres contar las palabras de tu texto ahora mismo?</p>
+      <a href="/" class="cta-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Usar el Contador de Palabras
+      </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <ul class="footer-links">
+        <li><a href="/">Contador de Palabras</a></li>
+        <li><a href="/numero-a-letras">Números a Letras</a></li>
+        <li><a href="/separador-silabas">Separador de Sílabas</a></li>
+        <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+        <li><a href="/privacidad">Privacidad</a></li>
+      </ul>
+      <p>&copy; 2026 TextoUtil · Herramientas de texto en español</p>
+    </footer>
+
+  </div>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+    }
+  </script>
+
+  <!-- Schema Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "¿Por qué es importante contar palabras en un texto?",
+    "description": "Contar palabras no es solo cumplir un requisito. Te explicamos por qué importa en trabajos académicos, redes sociales, SEO y redacción profesional.",
+    "author": {
+      "@type": "Person",
+      "name": "César Monzón",
+      "url": "https://textoutil.com/sobre-nosotros"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TextoUtil",
+      "url": "https://textoutil.com"
+    },
+    "datePublished": "2026-04-07",
+    "dateModified": "2026-04-07",
+    "url": "https://textoutil.com/blog/por-que-contar-palabras"
+  }
+  </script>
+
+</body>
+</html>
