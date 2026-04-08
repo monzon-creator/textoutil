@@ -455,5 +455,29 @@
     <p class="footer-copy">© 2026 TextoUtil · Herramientas de texto en español</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    const mobileMenuBtn = d
+    <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+    }
+
+    // Dropdown
+    const dropdownBtn = document.getElementById('dropdownBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    if (dropdownBtn) {
+      dropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdownBtn.classList.toggle('open');
+        dropdownMenu.classList.toggle('open');
+      });
+      document.addEventListener('click', () => {
+        dropdownBtn.classList.remove('open');
+        dropdownMenu.classList.remove('open');
+      });
+    }
+  </script>
+</body>
+</html>
