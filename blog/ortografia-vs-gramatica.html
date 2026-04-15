@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diferencia entre ortografía y gramática (con ejemplos claros)</title>
+    <meta name="description" content="Aprende la diferencia entre ortografía y gramática con ejemplos prácticos. Descubre por qué ambas son importantes para escribir correctamente en español.">
+    <link rel="canonical" href="https://textoutil.com/blog/ortografia-vs-gramatica">
+    <meta property="og:title" content="Diferencia entre ortografía y gramática (con ejemplos claros)">
+    <meta property="og:description" content="Aprende la diferencia entre ortografía y gramática con ejemplos prácticos. Descubre por qué ambas son importantes para escribir correctamente en español.">
+    <meta property="og:url" content="https://textoutil.com/blog/ortografia-vs-gramatica">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N0SP5GEEYP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N0SP5GEEYP');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            background: #0a0f1a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f97316;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f97316;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            background: none;
+            border: none;
+            color: #e2e8f0;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .dropdown-toggle:hover {
+            color: #f97316;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #0f172a;
+            border: 1px solid rgba(226, 232, 240, 0.1);
+            border-radius: 0.5rem;
+            padding: 0.5rem 0;
+            min-width: 250px;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown-menu.active {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(249, 115, 22, 0.1);
+            color: #f97316;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: #f97316;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #f97316;
+            line-height: 1.2;
+        }
+
+        .meta {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1rem 0;
+            color: #e2e8f0;
+        }
+
+        .article-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            color: #e2e8f0;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .article-content strong {
+            color: #f97316;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: rgba(249, 115, 22, 0.1);
+            border-left: 4px solid #f97316;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .example-box {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(226, 232, 240, 0.1);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .example-box h4 {
+            color: #f97316;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .faq-section {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(226, 232, 240, 0.1);
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f97316;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(15, 23, 42, 0.6) 100%);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            padding: 2rem;
+            margin: 3rem 0;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            color: #f97316;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #f97316;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #ea580c;
+        }
+
+        footer {
+            background: #0f172a;
+            border-top: 1px solid rgba(226, 232, 240, 0.1);
+            padding: 3rem 0 1.5rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #f97316;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #f97316;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0 auto;
+            padding: 1.5rem 2rem 0 2rem;
+            border-top: 1px solid rgba(226, 232, 240, 0.1);
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Diferencia entre ortografía y gramática (con ejemplos claros)",
+      "description": "Aprende la diferencia entre ortografía y gramática con ejemplos prácticos. Descubre por qué ambas son importantes para escribir correctamente en español.",
+      "author": {
+        "@type": "Person",
+        "name": "César Monzón",
+        "url": "https://textoutil.com/sobre-nosotros"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Textoutil",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://textoutil.com/img/logo.png"
+        }
+      },
+      "datePublished": "2026-04-15",
+      "dateModified": "2026-04-15"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuál es la diferencia principal entre ortografía y gramática?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La ortografía se ocupa de cómo se escriben correctamente las palabras (letras, tildes, puntuación), mientras que la gramática estudia las reglas para combinar palabras y formar oraciones con sentido."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se puede escribir con buena gramática pero mala ortografía?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, es posible. Puedes construir oraciones gramaticalmente correctas pero escribir las palabras con errores ortográficos. Por ejemplo: 'El niño a ido al parque' tiene buena estructura gramatical pero falla en ortografía (lo correcto es 'ha ido')."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es más importante: ortografía o gramática?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ambas son igual de importantes. La ortografía asegura que las palabras se escriban correctamente, mientras que la gramática garantiza que el mensaje tenga sentido. Una sin la otra resulta en comunicación deficiente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La puntuación es ortografía o gramática?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La puntuación pertenece a la ortografía. Los signos de puntuación (comas, puntos, signos de interrogación) se consideran parte de las normas ortográficas del español."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">Textoutil</a>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li class="dropdown">
+                    <button class="dropdown-toggle" onclick="toggleDropdown()">
+                        Más herramientas
+                        <span>▼</span>
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="/numero-a-letras">Conversor de Números a Letras</a>
+                        <a href="/separador-silabas">Separador de Sílabas</a>
+                        <a href="/contador-redes-sociales">Contador de Caracteres para Redes Sociales</a>
+                        <a href="/generador-lorem-ipsum">Generador de Lorem Ipsum</a>
+                        <a href="/convertidor-mayusculas-minusculas">Convertidor de Mayúsculas/Minúsculas</a>
+                    </div>
+                </li>
+                <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/">Inicio</a> > <a href="/blog/">Blog</a> > Diferencia entre ortografía y gramática
+        </div>
+
+        <article>
+            <h1>Diferencia entre ortografía y gramática (con ejemplos claros)</h1>
+            
+            <div class="meta">
+                Publicado el 15 de abril de 2026 por César Monzón
+            </div>
+
+            <div class="article-content">
+                <p>Muchas personas usan los términos "ortografía" y "gramática" como si fueran lo mismo. Pero no lo son. Ambas son esenciales para escribir bien, pero cada una tiene su función específica.</p>
+
+                <p>En este artículo te explico la diferencia de forma clara, con ejemplos que te ayudarán a entender por qué dominar ambas es importante si quieres comunicarte correctamente en español.</p>
+
+                <h2>¿Qué es la ortografía?</h2>
+
+                <p>La ortografía es el conjunto de normas que dictan cómo se escriben correctamente las palabras. Esto incluye:</p>
+
+                <ul>
+                    <li>El uso correcto de las letras (b/v, c/s/z, g/j, h, etc.)</li>
+                    <li>La acentuación (tildes en las palabras)</li>
+                    <li>La puntuación (comas, puntos, signos de interrogación)</li>
+                    <li>El uso de mayúsculas y minúsculas</li>
+                </ul>
+
+                <div class="example-box">
+                    <h4>Ejemplo de error ortográfico:</h4>
+                    <p><strong>Incorrecto:</strong> "Ayer fuí al cine con mi hermana."<br>
+                    <strong>Correcto:</strong> "Ayer fui al cine con mi hermana."</p>
+                    <p style="margin-top: 1rem; color: #94a3b8; font-size: 0.95rem;">El error está en la tilde sobre "fui". La palabra "fui" (del verbo ir) no lleva tilde según las normas de acentuación del español.</p>
+                </div>
+
+                <p>La ortografía se centra en la escritura correcta de cada palabra individual. No importa si la oración tiene sentido o no, la ortografía solo evalúa si cada palabra está escrita como debe.</p>
+
+                <h2>¿Qué es la gramática?</h2>
+
+                <p>La gramática es el conjunto de reglas que determinan cómo se combinan las palabras para formar oraciones con sentido. Incluye:</p>
+
+                <ul>
+                    <li>La sintaxis (el orden de las palabras en la oración)</li>
+                    <li>La morfología (cómo se forman y modifican las palabras)</li>
+                    <li>La concordancia (que sujeto y verbo coincidan en número y persona)</li>
+                    <li>Los tiempos verbales</li>
+                </ul>
+
+                <div class="example-box">
+                    <h4>Ejemplo de error gramatical:</h4>
+                    <p><strong>Incorrecto:</strong> "Los niños jugaba en el parque."<br>
+                    <strong>Correcto:</strong> "Los niños jugaban en el parque."</p>
+                    <p style="margin-top: 1rem; color: #94a3b8; font-size: 0.95rem;">El error es gramatical: el sujeto "los niños" (plural) no concuerda con el verbo "jugaba" (singular). La gramática exige que ambos estén en plural.</p>
+                </div>
+
+                <p>La gramática se ocupa de que el mensaje tenga sentido y esté bien estructurado. Puedes escribir todas las palabras correctamente desde el punto de vista ortográfico, pero si la gramática falla, la oración no comunica lo que querías decir.</p>
+
+                <h2>Ortografía vs Gramática: la diferencia clave</h2>
+
+                <div class="highlight-box">
+                    <p><strong>Ortografía:</strong> Se encarga de que cada palabra esté escrita correctamente.</p>
+                    <p style="margin-top: 1rem;"><strong>Gramática:</strong> Se encarga de que las palabras estén combinadas correctamente para formar un mensaje con sentido.</p>
+                </div>
+
+                <p>Piénsalo así: la ortografía es como saber deletrear bien cada ingrediente de una receta. La gramática es saber en qué orden mezclar esos ingredientes para que el platillo salga bien.</p>
+
+                <h3>Un ejemplo que lo aclara todo</h3>
+
+                <p>Vamos a ver tres versiones de la misma oración:</p>
+
+                <div class="example-box">
+                    <p><strong>1. Buena ortografía, mala gramática:</strong><br>
+                    "El perro grande corrió rápido por el parque."</p>
+                    <p style="margin-top: 1rem; color: #94a3b8; font-size: 0.95rem;">Todas las palabras están bien escritas, pero la oración suena rara porque falta algo de estructura o contexto.</p>
+                </div>
+
+                <div class="example-box" style="margin-top: 1rem;">
+                    <p><strong>2. Mala ortografía, buena gramática:</strong><br>
+                    "El perro grande corrio rapido por el parke."</p>
+                    <p style="margin-top: 1rem; color: #94a3b8; font-size: 0.95rem;">La estructura de la oración es correcta, pero hay errores ortográficos: "corrió" sin tilde, "rápido" sin tilde, "parque" con k.</p>
+                </div>
+
+                <div class="example-box" style="margin-top: 1rem;">
+                    <p><strong>3. Buena ortografía y buena gramática:</strong><br>
+                    "El perro grande corrió rápido por el parque."</p>
+                    <p style="margin-top: 1rem; color: #94a3b8; font-size: 0.95rem;">Todas las palabras están bien escritas y la oración está bien construida.</p>
+                </div>
+
+                <h2>¿Por qué ambas son importantes?</h2>
+
+                <p>Dominar solo la ortografía o solo la gramática no es suficiente. Necesitas ambas para comunicarte de forma efectiva:</p>
+
+                <ul>
+                    <li><strong>Si fallas en ortografía:</strong> Tu mensaje puede entenderse, pero te ves descuidado o poco profesional. Además, algunos errores ortográficos cambian completamente el significado (como "valla" vs "vaya").</li>
+                    <li><strong>Si fallas en gramática:</strong> Tu mensaje puede ser confuso o directamente incomprensible. La gente no sabrá qué quisiste decir.</li>
+                </ul>
+
+                <p>En el contexto profesional, ambas son igual de importantes. Un correo con buena gramática pero lleno de faltas de ortografía daña tu credibilidad tanto como uno con palabras bien escritas pero oraciones sin sentido.</p>
+
+                <div class="cta-box">
+                    <h3>Mejora tu escritura con nuestras herramientas</h3>
+                    <p>Revisa tus textos y asegúrate de que estén correctos antes de publicar o enviar.</p>
+                    <a href="/" class="cta-button">Contador de Palabras</a>
+                </div>
+
+                <h2>Consejos para mejorar ortografía y gramática</h2>
+
+                <p>Si quieres escribir mejor en ambos aspectos, aquí van algunos consejos prácticos:</p>
+
+                <h3>Para mejorar tu ortografía:</h3>
+                <ul>
+                    <li>Lee mucho. La lectura es la mejor forma de interiorizar la escritura correcta de las palabras.</li>
+                    <li>Usa el corrector ortográfico, pero no confíes ciegamente en él.</li>
+                    <li>Cuando tengas dudas sobre cómo se escribe una palabra, consulta el diccionario de la RAE.</li>
+                    <li>Haz listas de las palabras que siempre escribes mal y repásalas.</li>
+                </ul>
+
+                <h3>Para mejorar tu gramática:</h3>
+                <ul>
+                    <li>Lee en voz alta lo que escribes. Si suena raro, probablemente hay un error gramatical.</li>
+                    <li>Estudia las reglas básicas de concordancia y puntuación.</li>
+                    <li>Pide a alguien que revise tus textos y señale errores gramaticales.</li>
+                    <li>Practica escribiendo todos los días, aunque sean textos cortos.</li>
+                </ul>
+
+                <div class="faq-section">
+                    <h2>Preguntas frecuentes</h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question">¿Cuál es la diferencia principal entre ortografía y gramática?</div>
+                        <p>La ortografía se ocupa de cómo se escriben correctamente las palabras (letras, tildes, puntuación), mientras que la gramática estudia las reglas para combinar palabras y formar oraciones con sentido.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">¿Se puede escribir con buena gramática pero mala ortografía?</div>
+                        <p>Sí, es posible. Puedes construir oraciones gramaticalmente correctas pero escribir las palabras con errores ortográficos. Por ejemplo: "El niño a ido al parque" tiene buena estructura gramatical pero falla en ortografía (lo correcto es "ha ido").</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">¿Qué es más importante: ortografía o gramática?</div>
+                        <p>Ambas son igual de importantes. La ortografía asegura que las palabras se escriban correctamente, mientras que la gramática garantiza que el mensaje tenga sentido. Una sin la otra resulta en comunicación deficiente.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">¿La puntuación es ortografía o gramática?</div>
+                        <p>La puntuación pertenece a la ortografía. Los signos de puntuación (comas, puntos, signos de interrogación) se consideran parte de las normas ortográficas del español.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Herramientas</h3>
+                <ul>
+                    <li><a href="/">Contador de Palabras</a></li>
+                    <li><a href="/numero-a-letras">Conversor de Números a Letras</a></li>
+                    <li><a href="/separador-silabas">Separador de Sílabas</a></li>
+                    <li><a href="/contador-redes-sociales">Contador de Caracteres para Redes</a></li>
+                    <li><a href="/generador-lorem-ipsum">Generador de Lorem Ipsum</a></li>
+                    <li><a href="/convertidor-mayusculas-minusculas">Convertidor de Mayúsculas/Minúsculas</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Blog</h3>
+                <ul>
+                    <li><a href="/blog/">Todos los artículos</a></li>
+                    <li><a href="/blog/por-que-contar-palabras">Por qué contar palabras</a></li>
+                    <li><a href="/blog/escribir-redes-sociales">Escribir para redes sociales</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
+                    <li><a href="/privacidad">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Textoutil. Todas las herramientas son gratuitas.
+        </div>
+    </footer>
+
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.classList.toggle('active');
+        }
+
+        // Cerrar dropdown al hacer clic fuera
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.dropdown');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            
+            if (!dropdown.contains(event.target)) {
+                dropdownMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
