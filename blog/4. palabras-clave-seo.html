@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qué son las palabras clave y cómo usarlas en SEO (guía simple)</title>
+    <meta name="description" content="Aprende qué son las palabras clave en SEO y cómo usarlas para posicionar tu contenido en Google. Guía práctica sin tecnicismos complicados.">
+    <link rel="canonical" href="https://textoutil.com/blog/palabras-clave-seo">
+    <meta property="og:title" content="Qué son las palabras clave y cómo usarlas en SEO (guía simple)">
+    <meta property="og:description" content="Aprende qué son las palabras clave en SEO y cómo usarlas para posicionar tu contenido en Google. Guía práctica sin tecnicismos complicados.">
+    <meta property="og:url" content="https://textoutil.com/blog/palabras-clave-seo">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N0SP5GEEYP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N0SP5GEEYP');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            background: #0a0f1a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f97316;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f97316;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            background: none;
+            border: none;
+            color: #e2e8f0;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .dropdown-toggle:hover {
+            color: #f97316;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #0f172a;
+            border: 1px solid rgba(226, 232, 240, 0.1);
+            border-radius: 0.5rem;
+            padding: 0.5rem 0;
+            min-width: 250px;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown-menu.active {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(249, 115, 22, 0.1);
+            color: #f97316;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: #f97316;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #f97316;
+            line-height: 1.2;
+        }
+
+        .meta {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1rem 0;
+            color: #e2e8f0;
+        }
+
+        .article-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            color: #e2e8f0;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .article-content strong {
+            color: #f97316;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: rgba(249, 115, 22, 0.1);
+            border-left: 4px solid #f97316;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .example-box {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(226, 232, 240, 0.1);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .example-box h4 {
+            color: #f97316;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .tip-box {
+            background: rgba(34, 197, 94, 0.1);
+            border-left: 4px solid #22c55e;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .tip-box h4 {
+            color: #22c55e;
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-section {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(226, 232, 240, 0.1);
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f97316;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(15, 23, 42, 0.6) 100%);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            padding: 2rem;
+            margin: 3rem 0;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            color: #f97316;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #f97316;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #ea580c;
+        }
+
+        footer {
+            background: #0f172a;
+            border-top: 1px solid rgba(226, 232, 240, 0.1);
+            padding: 3rem 0 1.5rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #f97316;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #f97316;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0 auto;
+            padding: 1.5rem 2rem 0 2rem;
+            border-top: 1px solid rgba(226, 232, 240, 0.1);
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Qué son las palabras clave y cómo usarlas en SEO (guía simple)",
+      "description": "Aprende qué son las palabras clave en SEO y cómo usarlas para posicionar tu contenido en Google. Guía práctica sin tecnicismos complicados.",
+      "author": {
+        "@type": "Person",
+        "name": "César Monzón",
+        "url": "https://textoutil.com/sobre-nosotros"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Textoutil",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://textoutil.com/img/logo.png"
+        }
+      },
+      "datePublished": "2026-04-15",
+      "dateModified": "2026-04-15"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué son las palabras clave en SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las palabras clave son los términos que la gente escribe en Google cuando busca algo. En SEO, usar las palabras clave correctas en tu contenido ayuda a que Google entienda de qué trata tu página y la muestre a quienes buscan esos términos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántas veces debo usar una palabra clave en mi contenido?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No hay un número mágico. Usa la palabra clave de forma natural donde tenga sentido: en el título, algún subtítulo, y unas cuantas veces en el texto. Forzarla repetidamente (keyword stuffing) puede perjudicarte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo encuentro palabras clave para mi contenido?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Empieza escribiendo en Google lo que buscarías si fueras tu cliente. Fíjate en las sugerencias de autocompletar y en la sección 'Otras preguntas de los usuarios'. Herramientas gratuitas como Google Keyword Planner o Ubersuggest también ayudan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es mejor usar palabras clave cortas o largas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende de tu estrategia. Las palabras cortas (ej: 'zapatos') tienen más búsquedas pero más competencia. Las palabras largas (ej: 'zapatos deportivos para correr en montaña') tienen menos búsquedas pero más posibilidades de posicionar y atraer gente que sabe exactamente qué quiere."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">Textoutil</a>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li class="dropdown">
+                    <button class="dropdown-toggle" onclick="toggleDropdown()">
+                        Más herramientas
+                        <span>▼</span>
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="/numero-a-letras">Conversor de Números a Letras</a>
+                        <a href="/separador-silabas">Separador de Sílabas</a>
+                        <a href="/contador-redes-sociales">Contador de Caracteres para Redes Sociales</a>
+                        <a href="/generador-lorem-ipsum">Generador de Lorem Ipsum</a>
+                        <a href="/convertidor-mayusculas-minusculas">Convertidor de Mayúsculas/Minúsculas</a>
+                    </div>
+                </li>
+                <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/">Inicio</a> > <a href="/blog/">Blog</a> > Palabras clave SEO
+        </div>
+
+        <article>
+            <h1>Qué son las palabras clave y cómo usarlas en SEO (guía simple)</h1>
+            
+            <div class="meta">
+                Publicado el 15 de abril de 2026 por César Monzón
+            </div>
+
+            <div class="article-content">
+                <p>Si tienes un blog, un negocio online o cualquier tipo de contenido en internet, seguramente has escuchado hablar de "palabras clave" o "keywords". Pero más allá del término técnico, ¿realmente sabes qué son y cómo usarlas?</p>
+
+                <p>En este artículo te explico de forma simple qué son las palabras clave en SEO y cómo aprovecharlas para que Google muestre tu contenido a las personas correctas.</p>
+
+                <h2>¿Qué son las palabras clave?</h2>
+
+                <p>Las palabras clave son los términos que la gente escribe en Google (o cualquier buscador) cuando busca algo.</p>
+
+                <p>Por ejemplo:</p>
+                <ul>
+                    <li>"Cómo hacer pan casero"</li>
+                    <li>"Mejores laptops 2026"</li>
+                    <li>"Contador de palabras gratis"</li>
+                    <li>"Restaurantes cerca de mí"</li>
+                </ul>
+
+                <p>Cada una de esas frases es una palabra clave. Aunque digan "palabra" clave, pueden ser varias palabras juntas. También se les llama "términos de búsqueda" o "queries".</p>
+
+                <div class="highlight-box">
+                    <p><strong>En resumen:</strong> Las palabras clave son lo que la gente escribe en Google para encontrar algo. Tu trabajo es usar esas mismas palabras en tu contenido para que Google sepa que tu página responde a esa búsqueda.</p>
+                </div>
+
+                <h2>¿Por qué son importantes en SEO?</h2>
+
+                <p>Google funciona conectando búsquedas con contenido relevante. Cuando alguien busca "cómo hacer pan casero", Google escanea millones de páginas buscando las que mejor respondan esa pregunta.</p>
+
+                <p>Si tu artículo habla sobre hacer pan casero pero nunca usas esas palabras (y en cambio hablas de "elaboración de productos de panadería artesanal"), Google no va a conectar tu contenido con esa búsqueda.</p>
+
+                <p>Las palabras clave son el puente entre lo que la gente busca y lo que tú ofreces.</p>
+
+                <h2>Tipos de palabras clave</h2>
+
+                <h3>Palabras clave cortas (head keywords)</h3>
+                <p>Son términos de 1-2 palabras, muy genéricos.</p>
+
+                <div class="example-box">
+                    <h4>Ejemplos:</h4>
+                    <p>"Zapatos", "Marketing", "Recetas"</p>
+                    <p style="margin-top: 1rem; color: #94a3b8; font-size: 0.95rem;"><strong>Ventajas:</strong> Mucho volumen de búsqueda.<br>
+                    <strong>Desventajas:</strong> Competencia altísima, difícil posicionar, poco específicas.</p>
+                </div>
+
+                <h3>Palabras clave de cola media (middle-tail keywords)</h3>
+                <p>Tienen 2-3 palabras, son más específicas.</p>
+
+                <div class="example-box">
+                    <h4>Ejemplos:</h4>
+                    <p>"Zapatos deportivos", "Marketing digital", "Recetas saludables"</p>
+                    <p style="margin-top: 1rem; color: #94a3b8; font-size: 0.95rem;"><strong>Ventajas:</strong> Buen equilibrio entre volumen y competencia.<br>
+                    <strong>Desventajas:</strong> Todavía bastante competidas.</p>
+                </div>
+
+                <h3>Palabras clave de cola larga (long-tail keywords)</h3>
+                <p>Frases de 4+ palabras, muy específicas.</p>
+
+                <div class="example-box">
+                    <h4>Ejemplos:</h4>
+                    <p>"Zapatos deportivos para correr en montaña", "Estrategias de marketing digital para restaurantes", "Recetas saludables sin gluten para niños"</p>
+                    <p style="margin-top: 1rem; color: #94a3b8; font-size: 0.95rem;"><strong>Ventajas:</strong> Menos competencia, más fácil posicionar, atraen tráfico más cualificado (gente que sabe exactamente qué quiere).<br>
+                    <strong>Desventajas:</strong> Menos volumen de búsqueda individual.</p>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 Consejo para empezar</h4>
+                    <p>Si estás comenzando, enfócate en palabras clave de cola larga. Son más fáciles de posicionar y atraen a personas con mayor intención de compra o acción.</p>
+                </div>
+
+                <h2>Cómo encontrar palabras clave</h2>
+
+                <p>No necesitas herramientas complicadas para empezar. Aquí hay métodos simples:</p>
+
+                <h3>1. Piensa como tu audiencia</h3>
+                <p>¿Qué escribirías en Google si buscaras lo que tú ofreces? Haz una lista de 10-20 términos.</p>
+
+                <h3>2. Usa el autocompletar de Google</h3>
+                <p>Empieza a escribir algo en Google y fíjate en las sugerencias que aparecen. Esas son búsquedas reales que la gente hace.</p>
+
+                <h3>3. Revisa "Otras preguntas de los usuarios"</h3>
+                <p>Cuando buscas algo en Google, aparece una sección con preguntas relacionadas. Esas preguntas son oro para crear contenido.</p>
+
+                <h3>4. Mira a tu competencia</h3>
+                <p>Busca tus palabras clave y revisa qué páginas aparecen en la primera página de resultados. Analiza qué palabras usan en sus títulos y contenido.</p>
+
+                <h3>5. Herramientas gratuitas</h3>
+                <ul>
+                    <li><strong>Google Keyword Planner:</strong> Muestra volumen de búsquedas y competencia</li>
+                    <li><strong>Ubersuggest:</strong> Versión gratuita limitada pero útil</li>
+                    <li><strong>Answer The Public:</strong> Te muestra preguntas que la gente hace sobre un tema</li>
+                </ul>
+
+                <h2>Cómo usar palabras clave en tu contenido</h2>
+
+                <p>Encontrar las palabras clave es solo el primer paso. Ahora tienes que usarlas de forma inteligente:</p>
+
+                <h3>1. En el título de la página</h3>
+                <p>El título es lo más importante. Incluye tu palabra clave principal al inicio si es posible.</p>
+
+                <div class="example-box">
+                    <h4>Ejemplo:</h4>
+                    <p><strong>Bien:</strong> "Cómo hacer pan casero en 5 pasos (sin experiencia)"<br>
+                    <strong>Mal:</strong> "5 pasos que cambiarán tu forma de cocinar"</p>
+                </div>
+
+                <h3>2. En los subtítulos (H2, H3)</h3>
+                <p>Usa la palabra clave principal y variaciones en algunos subtítulos. No en todos, solo donde tenga sentido.</p>
+
+                <h3>3. En el primer párrafo</h3>
+                <p>Menciona tu palabra clave en los primeros 100-150 caracteres del contenido.</p>
+
+                <h3>4. De forma natural en el texto</h3>
+                <p>No cuentes cuántas veces la usas. Escribe de forma natural. Si usas la palabra clave donde tiene sentido, será suficiente.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Regla de oro:</strong> Escribe para humanos, no para robots. Si tu texto suena raro o forzado por meter palabras clave, estás haciéndolo mal.</p>
+                </div>
+
+                <h2>Errores comunes con palabras clave</h2>
+
+                <h3>Error #1: Keyword stuffing (saturación)</h3>
+                <p>Repetir la palabra clave cada dos frases para "posicionar mejor". Google penaliza esto.</p>
+
+                <div class="example-box">
+                    <h4>Mal ejemplo:</h4>
+                    <p>"Si buscas zapatos deportivos, tenemos los mejores zapatos deportivos. Nuestros zapatos deportivos son zapatos deportivos de calidad..."</p>
+                </div>
+
+                <h3>Error #2: Usar solo palabras clave muy competidas</h3>
+                <p>Intentar posicionar "marketing" o "zapatos" cuando tienes un sitio nuevo es casi imposible. Empieza con términos más específicos.</p>
+
+                <h3>Error #3: Ignorar la intención de búsqueda</h3>
+                <p>No basta con usar la palabra clave. Tienes que entender qué quiere la persona que busca eso.</p>
+
+                <p>Si alguien busca "cómo hacer pan casero", quiere un tutorial paso a paso, no un artículo filosófico sobre la historia del pan.</p>
+
+                <div class="cta-box">
+                    <h3>Optimiza tu contenido</h3>
+                    <p>Revisa la longitud de tus textos y asegúrate de que tengan suficiente profundidad para posicionar.</p>
+                    <a href="/" class="cta-button">Contador de Palabras</a>
+                </div>
+
+                <h2>¿Cuántas palabras clave debo usar por página?</h2>
+
+                <p>No hay una regla estricta, pero aquí está mi recomendación:</p>
+
+                <ul>
+                    <li><strong>1 palabra clave principal:</strong> La que mejor describe de qué trata tu página</li>
+                    <li><strong>2-3 palabras clave secundarias:</strong> Variaciones o términos relacionados</li>
+                    <li><strong>Varias palabras clave de cola larga:</strong> Preguntas específicas que tu contenido responde</li>
+                </ul>
+
+                <p>Lo importante no es la cantidad, sino la relevancia. Es mejor posicionar bien para 3 palabras clave muy relevantes que posicionar mal para 20.</p>
+
+                <h2>Conclusión</h2>
+
+                <p>Las palabras clave son el idioma que conecta lo que la gente busca con el contenido que tú creas. No son magia ni una fórmula secreta. Son simplemente entender qué busca tu audiencia y hablar su mismo idioma.</p>
+
+                <p>Empieza simple: identifica 5-10 palabras clave relevantes para tu negocio o blog, crea contenido de calidad alrededor de ellas, y úsalas de forma natural. Con el tiempo verás resultados.</p>
+
+                <div class="faq-section">
+                    <h2>Preguntas frecuentes</h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question">¿Qué son las palabras clave en SEO?</div>
+                        <p>Las palabras clave son los términos que la gente escribe en Google cuando busca algo. En SEO, usar las palabras clave correctas en tu contenido ayuda a que Google entienda de qué trata tu página y la muestre a quienes buscan esos términos.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">¿Cuántas veces debo usar una palabra clave en mi contenido?</div>
+                        <p>No hay un número mágico. Usa la palabra clave de forma natural donde tenga sentido: en el título, algún subtítulo, y unas cuantas veces en el texto. Forzarla repetidamente (keyword stuffing) puede perjudicarte.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">¿Cómo encuentro palabras clave para mi contenido?</div>
+                        <p>Empieza escribiendo en Google lo que buscarías si fueras tu cliente. Fíjate en las sugerencias de autocompletar y en la sección "Otras preguntas de los usuarios". Herramientas gratuitas como Google Keyword Planner o Ubersuggest también ayudan.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">¿Es mejor usar palabras clave cortas o largas?</div>
+                        <p>Depende de tu estrategia. Las palabras cortas (ej: "zapatos") tienen más búsquedas pero más competencia. Las palabras largas (ej: "zapatos deportivos para correr en montaña") tienen menos búsquedas pero más posibilidades de posicionar y atraer gente que sabe exactamente qué quiere.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Herramientas</h3>
+                <ul>
+                    <li><a href="/">Contador de Palabras</a></li>
+                    <li><a href="/numero-a-letras">Conversor de Números a Letras</a></li>
+                    <li><a href="/separador-silabas">Separador de Sílabas</a></li>
+                    <li><a href="/contador-redes-sociales">Contador de Caracteres para Redes</a></li>
+                    <li><a href="/generador-lorem-ipsum">Generador de Lorem Ipsum</a></li>
+                    <li><a href="/convertidor-mayusculas-minusculas">Convertidor de Mayúsculas/Minúsculas</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Blog</h3>
+                <ul>
+                    <li><a href="/blog/">Todos los artículos</a></li>
+                    <li><a href="/blog/por-que-contar-palabras">Por qué contar palabras</a></li>
+                    <li><a href="/blog/escribir-redes-sociales">Escribir para redes sociales</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
+                    <li><a href="/privacidad">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Textoutil. Todas las herramientas son gratuitas.
+        </div>
+    </footer>
+
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.dropdown');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            
+            if (!dropdown.contains(event.target)) {
+                dropdownMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
